@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="531.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller.DisplayTeacherController">
+   <children>
+      <BarChart layoutX="400.0" layoutY="281.0" prefHeight="218.0" prefWidth="330.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <Label layoutX="444.0" layoutY="21.0" prefHeight="18.0" prefWidth="185.0" text="Label" />
+      <TableView fx:id="studentList" layoutX="43.0" layoutY="81.0" prefHeight="392.0" prefWidth="294.0">
+        <columns>
+          <TableColumn fx:id="studentName" prefWidth="151.9999656677246" text="C1" />
+          <TableColumn fx:id="studentAttendance" prefWidth="137.6000518798828" text="C2" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

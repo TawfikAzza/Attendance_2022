@@ -80,7 +80,7 @@ public class PersonManager {
         /**
          * Validating lectures so the data has some things to look for in the future form (FXML)
          * **/
-        System.out.println("before validate: ");
+
         student1.validateParticipation(lecture1);
         student1.validateParticipation(lecture3);
         student2.validateParticipation(lecture1);

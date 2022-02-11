@@ -60,7 +60,6 @@ public class DisplayStudentController implements Initializable {
     // also work on adding new student and maybe new lectures for the weeks to come.
     private void initCalendar() throws ParseException {
         student = studentModel.getStudent(1);
-        System.out.println("DATE NOW: "+dateNow);
         if(dateNow==null) {
             if(dateSelector.getValue()==null) {
                 dateNow = LocalDate.now();
@@ -160,9 +159,7 @@ public class DisplayStudentController implements Initializable {
 
     @FXML
     void displayNextWeek(ActionEvent event) throws ParseException {
-        System.out.println("DateNow In DisplayNextWeek: "+dateNow);
         dateNow = dateNow.plusDays(7);
-        System.out.println("DateNow plus 7 days  In DisplayNextWeek: "+dateNow);
         initCalendar();
     }
 

@@ -76,6 +76,7 @@ public class DisplayStudentController implements Initializable {
         hBoxDays.getChildren().clear();
         hBoxDays.setSpacing(5);
         hBoxCalendar.setSpacing(5);
+        btnConfirmAttendance.setStyle("-fx-border-color: lightblue");
         /**
          * Filling the calendar with the values of the lectures contained in the attendance
          * HshMap of the student.
@@ -113,6 +114,13 @@ public class DisplayStudentController implements Initializable {
              *
              * */
             indexDay++;
+            if(attendance.getLecture().getDate().equals(LocalDate.now())) {
+                lectureOfTheDay = attendance.getLecture();
+                btnConfirmAttendance.setText(attendance.getLecture().getName());
+                if(attendance.isPresence()) {
+                    btnConfirmAttendance.setStyle("-fx-background-color: lightgreen");
+                }
+            }
         }
 
         int week = dateNow.get ( IsoFields.WEEK_OF_WEEK_BASED_YEAR );
@@ -140,8 +148,13 @@ public class DisplayStudentController implements Initializable {
 
     @FXML
     void confirmAttendance(ActionEvent event) throws ParseException {
-        student.getAttendanceList().get(lectureOfTheDay.getId()).setPresence(true);
-        btnConfirmAttendance.setStyle("-fx-background-color: lightgreen");
+        if(!student.getAttendanceList().get(lectureOfTheDay.getId()).isPresence()) {
+            student.getAttendanceList().get(lectureOfTheDay.getId()).setPresence(true);
+            btnConfirmAttendance.setStyle("-fx-background-color: lightgreen");
+        } else {
+            student.getAttendanceList().get(lectureOfTheDay.getId()).setPresence(false);
+            btnConfirmAttendance.setStyle("-fx-background-color: #ffcccb");
+        }
         initCalendar();
     }
 

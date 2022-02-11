@@ -74,6 +74,8 @@ public class DisplayStudentController implements Initializable {
         vBoxCalendar.setAlignment(Pos.CENTER);
         hBoxCalendar.getChildren().clear();
         hBoxDays.getChildren().clear();
+        hBoxDays.setSpacing(5);
+        hBoxCalendar.setSpacing(5);
         /**
          * Filling the calendar with the values of the lectures contained in the attendance
          * HshMap of the student.

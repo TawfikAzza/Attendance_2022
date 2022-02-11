@@ -38,7 +38,7 @@ public class DisplayStudentController implements Initializable {
     private VBox vBoxCalendar;
 
     @FXML
-    private Label lblWeek,lblMonday,lblTuesday,lblWednesday,lblThursday,lblFriday;
+    private Label lblWeek;
     @FXML
     private DatePicker dateSelector;
 
@@ -55,9 +55,8 @@ public class DisplayStudentController implements Initializable {
             e.printStackTrace();
         }
     }
-    //TODO: Solve the riddle of the button for the next and previous week, the return value of dateNow is null
-    // when it shouldn't be.
-    // also work on adding new student and maybe new lectures for the weeks to come.
+    //TODO: Work on adding new student and maybe new lectures for the weeks to come.
+    // For that use the Class PersonManager
     private void initCalendar() throws ParseException {
         student = studentModel.getStudent(1);
         if(dateNow==null) {

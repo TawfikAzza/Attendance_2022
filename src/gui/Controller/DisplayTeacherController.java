@@ -16,8 +16,8 @@ import java.util.ResourceBundle;
 
 public class DisplayTeacherController implements Initializable {
     /***
-     * This class will host only one teacher as proof of concept, however, it
-     * can be easily changed if if/when the class TeacherModel is implemented.
+     * This class will host only one teacher as proof of concept. However, it
+     * can be easily changed when the class TeacherModel is implemented.
      * for now, the teacher object which will be used will be "hard-coded" in the constructor
      * the method used to fill the students associated to a teacher will also
      * be "static" in a way as no teacher id will be provided and the teacher will have access to all the students

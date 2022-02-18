@@ -18,13 +18,13 @@ public class PersonManager {
     public PersonManager() {
         LocalDate now = LocalDate.now();
         TemporalField fieldISO = WeekFields.of(Locale.FRANCE).dayOfWeek();
-        //System.out.println("first day is : "+now.with(fieldISO, 1));
+
         /**
-         * Creating the lectures mock datas
+         * Creating mock data
          *
          * */
         lectureList = new ArrayList<>();
-    // filling the dates of the lecture with the current dates of the week (for the test)
+
         Lecture lecture1 = new Lecture(1,"SCO2", now.with(fieldISO, 1));
         Lecture lecture2 = new Lecture(2,"SDE2", now.with(fieldISO, 2));
         Lecture lecture3 = new Lecture(3,"ITO2", now.with(fieldISO, 3));
@@ -39,9 +39,6 @@ public class PersonManager {
 
         mapStudent = new HashMap<>();
 
-        /**
-         * Creating the Student Mock Datas and adding them in the HashMap for easy search through future methods
-         * */
         Student student1 = new Student(1,"Tawfik Azza","tawf0021@easv.dk","test");
         Student student2 = new Student(2,"Amin Aouina","amin@easv.dk","test");
         Student student3 = new Student(3,"Mads Madsen","madsmadsen@easv.dk","test");
@@ -52,6 +49,7 @@ public class PersonManager {
         Student student8 = new Student(8,"Mareike Steffens","mareikesteffens@easv.dk","test");
         Student student9 = new Student(9,"Chantal Brockmeyer","chantalbrock@easv.dk","test");
         Student student10 = new Student(10,"Adam Lörincz","adamlorincz@easv.dk","test");
+
         mapStudent.put(student1.getId(),student1);
         mapStudent.put(student2.getId(),student2);
         mapStudent.put(student3.getId(),student3);
@@ -64,18 +62,13 @@ public class PersonManager {
         mapStudent.put(student10.getId(),student10);
 
         /**
-         * Assigning the lectures to the students.
+         * Assigning the lectures to the students and validating participation
          * */
-        student1.setLectureList(lectureList);
-        student2.setLectureList(lectureList);
-        student3.setLectureList(lectureList);
-        student4.setLectureList(lectureList);
-        student5.setLectureList(lectureList);
-        student6.setLectureList(lectureList);
-        student7.setLectureList(lectureList);
-        student8.setLectureList(lectureList);
-        student9.setLectureList(lectureList);
-        student10.setLectureList(lectureList);
+
+        for (Student student:mapStudent.values()){
+            student.setLectureList(lectureList);
+        }
+
 
         /**
          * Validating lectures so the data has some things to look for in the future form (FXML)
@@ -83,7 +76,7 @@ public class PersonManager {
 
         student1.validateParticipation(lecture1);
         student1.validateParticipation(lecture3);
-        student2.validateParticipation(lecture1);
+        student2.validateParticipation(lecture2);
         student2.validateParticipation(lecture3);
         student3.validateParticipation(lecture1);
         student4.validateParticipation(lecture1);

@@ -9,7 +9,6 @@ public class Student extends Person{
 
     private List<Lecture> lectureList;
     private HashMap<Integer,Attendance> attendanceList;
-    private String attendance;
     private String password;
 
     public Student (int id, String name, String email, String password) {
@@ -20,9 +19,6 @@ public class Student extends Person{
 
     public void validateParticipation(Lecture lecture) {
 
-        //If the user have already added his participation on the lecture, nothing is done
-        //if the user has not yet confirmed his participation to the lecture,
-        //the lecture is added to the list of the attendances.
         if(checkParticipation(lecture)) {
             attendanceList.get(lecture.getId()).setPresence(true);
         }
@@ -40,7 +36,6 @@ public class Student extends Person{
      * */
     private boolean checkParticipation(Lecture lecture) {
 
-        boolean checkIfExist=false;
         for(Map.Entry entry:attendanceList.entrySet()) {
             Attendance attendance = (Attendance) entry.getValue();
 
@@ -70,20 +65,13 @@ public class Student extends Person{
     }
 
     public String getAttendance() {
-        double totalAttendance=0;
         double totalMissedClasses=0;
         for (Attendance attendance: attendanceList.values()) {
             if(!attendance.isPresence()) {
                 totalMissedClasses+=1;
             }
-            //totalAttendance+=1;
-
         }
         double total= 100-((totalMissedClasses/lectureList.size())*100);
         return String.valueOf(total);
-    }
-
-    public void setAttendance(String attendance) {
-        this.attendance = attendance;
     }
 }

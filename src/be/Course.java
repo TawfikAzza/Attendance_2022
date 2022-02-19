@@ -1,20 +1,24 @@
 package be;
 
 
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.Period;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
-public class Lecture {
+public class Course {
     private int id;
-    String name;
-    private LocalDate date;
+    private String name;
+    private HashMap<Integer,ArrayList<String>>allLectures;
     /**
      * Because I don't have access to a database, I used this class as well as
      * the Attendance class to store the data pertaining to the student's schedule
      * */
-    public Lecture(int id,String name,LocalDate localDate) {
+    public Course(int id, String name) {
         this.id=id;
         this.name=name;
-        this.date=localDate;
     }
 
     public int getId() {
@@ -33,11 +37,11 @@ public class Lecture {
         this.name = name;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public HashMap<Integer, ArrayList<String>> getAllLectures() {
+        return allLectures;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setAllLectures(HashMap<Integer, ArrayList<String>> allLectures) {
+        this.allLectures = allLectures;
     }
 }

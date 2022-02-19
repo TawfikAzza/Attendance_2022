@@ -1,20 +1,17 @@
 package bll;
 
 
-import be.Lecture;
+import be.Course;
 import be.Student;
 
 import java.time.LocalDate;
 import java.time.temporal.TemporalField;
 import java.time.temporal.WeekFields;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 public class PersonManager {
     HashMap<Integer,Student> mapStudent;
-    List<Lecture> lectureList;
+    List<Course> courseList;
     public PersonManager() {
         LocalDate now = LocalDate.now();
         TemporalField fieldISO = WeekFields.of(Locale.FRANCE).dayOfWeek();
@@ -23,19 +20,40 @@ public class PersonManager {
          * Creating mock data
          *
          * */
-        lectureList = new ArrayList<>();
+        courseList = new ArrayList<>();
 
-        Lecture lecture1 = new Lecture(1,"SCO2", now.with(fieldISO, 1));
-        Lecture lecture2 = new Lecture(2,"SDE2", now.with(fieldISO, 2));
-        Lecture lecture3 = new Lecture(3,"ITO2", now.with(fieldISO, 3));
-        Lecture lecture4 = new Lecture(4,"DBOS2", now.with(fieldISO, 4));
-        Lecture lecture5 = new Lecture(5,"SCO2/SDE2", now.with(fieldISO, 5));
+        Course course1 = new Course(1,"SCO");
+        HashMap<Integer,ArrayList<String>>allLecturesCourse1=new HashMap<>();
+        allLecturesCourse1.put(1,new ArrayList<>(Arrays.asList("12:00","14:30")));
+        allLecturesCourse1.put(3,new ArrayList<>(Arrays.asList("09:00","11:30")));
+        allLecturesCourse1.put(5,new ArrayList<>(Arrays.asList("09:00","11:30")));
+        course1.setAllLectures(allLecturesCourse1);
+        courseList.add(course1);
 
-        lectureList.add(lecture1);
-        lectureList.add(lecture2);
-        lectureList.add(lecture3);
-        lectureList.add(lecture4);
-        lectureList.add(lecture5);
+
+
+        Course course2 = new Course(2,"SDE");
+        HashMap<Integer,ArrayList<String>>allLecturesCourse2=new HashMap<>();
+
+        allLecturesCourse2.put(2,new ArrayList<>(Arrays.asList("09:00","13:30")));
+        course2.setAllLectures(allLecturesCourse2);
+        courseList.add(course2);
+
+        Course course3 = new Course(3,"ITO");
+        HashMap<Integer,ArrayList<String>>allLecturesCourse3=new HashMap<>();
+
+        allLecturesCourse3.put(4,new ArrayList<>(Arrays.asList("12:00","15:15")));
+        course3.setAllLectures(allLecturesCourse3);
+        courseList.add(course3);
+
+        Course course4 = new Course(4,"DBOS");
+        HashMap<Integer,ArrayList<String>>allLecturesCourse4=new HashMap<>();
+
+        allLecturesCourse4.put(3,new ArrayList<>(Arrays.asList("08:15","11:30")));
+        courseList.add(course4);
+        course4.setAllLectures(allLecturesCourse4);
+
+
 
         mapStudent = new HashMap<>();
 
@@ -66,7 +84,7 @@ public class PersonManager {
          * */
 
         for (Student student:mapStudent.values()){
-            student.setLectureList(lectureList);
+            student.setLectureList(courseList);
         }
 
 
@@ -74,18 +92,17 @@ public class PersonManager {
          * Validating lectures so the data has some things to look for in the future form (FXML)
          * **/
 
-        student1.validateParticipation(lecture1);
-        student1.validateParticipation(lecture3);
-        student2.validateParticipation(lecture2);
-        student2.validateParticipation(lecture3);
-        student3.validateParticipation(lecture1);
-        student4.validateParticipation(lecture1);
-        student5.validateParticipation(lecture1);
-        student6.validateParticipation(lecture1);
-        student7.validateParticipation(lecture1);
-        student8.validateParticipation(lecture1);
-        student9.validateParticipation(lecture1);
-        student10.validateParticipation(lecture5);
+        student1.validateParticipation(course1);
+        student1.validateParticipation(course3);
+        student2.validateParticipation(course2);
+        student2.validateParticipation(course3);
+        student3.validateParticipation(course1);
+        student4.validateParticipation(course1);
+        student5.validateParticipation(course1);
+        student6.validateParticipation(course1);
+        student7.validateParticipation(course1);
+        student8.validateParticipation(course1);
+        student9.validateParticipation(course1);
 
 
     }

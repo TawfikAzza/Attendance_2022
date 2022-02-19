@@ -4,18 +4,16 @@ package gui.Model;
 
 
 
-import be.Lecture;
+import be.Course;
 import be.Student;
-import bll.DateUtil;
 import bll.PersonManager;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 
 public class StudentModel {
-    private List<Lecture> lectureList;
+    private List<Course> courseList;
     private HashMap<Integer, Student> studentHashMap;
     PersonManager personManager;
     public StudentModel() {

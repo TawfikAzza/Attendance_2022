@@ -2,7 +2,7 @@ package gui.Controller;
 
 
 import be.Attendance;
-import be.Lecture;
+import be.Course;
 import be.Student;
 import gui.Model.StudentModel;
 import javafx.event.ActionEvent;
@@ -16,10 +16,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.TextAlignment;
 
+import javax.swing.*;
 import java.net.URL;
 
 import java.text.ParseException;
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 import java.time.format.DateTimeFormatter;
@@ -27,6 +27,7 @@ import java.time.temporal.IsoFields;
 import java.time.temporal.TemporalField;
 import java.time.temporal.WeekFields;
 import java.util.*;
+
 
 public class DisplayStudentController implements Initializable {
     @FXML
@@ -41,7 +42,7 @@ public class DisplayStudentController implements Initializable {
     private DatePicker dateSelector;
 
     private StudentModel studentModel;
-    private Lecture lectureOfTheDay;
+    private Course courseOfTheDay;
     private LocalDate dateNow;
     private Student student;
 
@@ -67,7 +68,6 @@ public class DisplayStudentController implements Initializable {
             }
         }
         TemporalField fieldISO = WeekFields.of(Locale.FRANCE).dayOfWeek();
-        int indexDay = 1;
         DateTimeFormatter DATE_FORMAT =  DateTimeFormatter.ofPattern("dd/MM/yyyy");
         vBoxCalendar.setAlignment(Pos.CENTER);
         hBoxCalendar.getChildren().clear();
@@ -80,21 +80,49 @@ public class DisplayStudentController implements Initializable {
          * Filling the calendar with the values of the lectures contained in the attendance
          * HshMap of the student.
          * */
-
-        for (Attendance attendance:student.getAttendanceList().values()) {
-            Label label = new Label(attendance.getLecture().getName());
-            Label labelDays = new Label(dateNow.with(fieldISO,indexDay).format(DATE_FORMAT));
-            label.setPrefWidth(123);
-            label.setPrefHeight(252);
-            label.setTextAlignment(TextAlignment.CENTER);
-            label.setStyle("-fx-border-color: blue;");
-
+        for (int i =1;i<6;i++){
+            Label labelDays = new Label(dateNow.with(fieldISO,i).format(DATE_FORMAT));
             labelDays.setPrefWidth(123);
             labelDays.setPrefHeight(20);
-            labelDays.setTextAlignment(TextAlignment.CENTER);
+            labelDays.setAlignment(Pos.CENTER);
             labelDays.setStyle("-fx-background-color: lightblue;");
+            hBoxDays.getChildren().add(labelDays);
+            VBox vBox= new VBox();
+            hBoxCalendar.getChildren().add(vBox);
+            for (Attendance attendance:student.getAttendanceList().values()) {
+                for (Map.Entry<Integer, ArrayList<String>> entry : attendance.getCourse().getAllLectures().entrySet()) {
+                    Integer weekDay = entry.getKey();
+                    List<String>time=entry.getValue();
 
-            if(dateNow.with(fieldISO,indexDay).equals(attendance.getLecture().getDate())) {
+                    if (weekDay==i) {
+                        Label courseName = new Label(attendance.getCourse().getName());
+                        courseName.setPrefWidth(120);
+                        courseName.setPrefHeight(37);
+                        courseName.setAlignment(Pos.CENTER);
+                        if (attendance.isPresence())
+                        courseName.setStyle("-fx-background-color: rgba(55,255,0,0.96);");
+                        else courseName.setStyle("-fx-background-color: rgba(255,0,59,0.42);");
+
+                        vBox.getChildren().add(courseName);
+
+                        Label courseDuration = new Label(time.get(0)+" - "+time.get(1));
+                        courseDuration.setPrefWidth(120);
+                        courseDuration.setPrefHeight(20);
+                        courseDuration.setAlignment(Pos.CENTER);
+                        if (attendance.isPresence())
+                            courseName.setStyle("-fx-background-color: rgba(55,255,0,0.96);");
+                        else courseName.setStyle("-fx-background-color: rgba(255,0,59,0.42);");
+                        vBox.getChildren().add(courseDuration);
+
+                    }
+        }}
+
+
+
+
+
+
+            /*if(dateNow.with(fieldISO,indexDay).equals(attendance.getLecture().getDate())) {
                 if(attendance.isPresence()) {
                     label.setStyle("-fx-background-color: lightgreen");
                 }else {
@@ -104,21 +132,18 @@ public class DisplayStudentController implements Initializable {
             } else {
                 label.setText("No Lecture");
                 label.setStyle("-fx-background-color: #ffcccb");
-            }
+            }*/
 
             hBoxDays.setAlignment(Pos.CENTER);
             hBoxCalendar.setAlignment(Pos.CENTER);
-            hBoxDays.getChildren().add(labelDays);
-            hBoxCalendar.getChildren().add(label);
 
-            indexDay++;
-            if(attendance.getLecture().getDate().equals(LocalDate.now())) {
-                lectureOfTheDay = attendance.getLecture();
+            /*if(attendance.getLecture().getDate().equals(LocalDate.now())) {
+                courseOfTheDay = attendance.getLecture();
                 btnConfirmAttendance.setText(attendance.getLecture().getName());
                 if(attendance.isPresence()) {
                     btnConfirmAttendance.setStyle("-fx-background-color: lightgreen");
                 }
-            }
+            }*/
         }
 
         int week = dateNow.get ( IsoFields.WEEK_OF_WEEK_BASED_YEAR );
@@ -147,11 +172,11 @@ public class DisplayStudentController implements Initializable {
 
     @FXML
     void confirmAttendance(ActionEvent event) throws ParseException {
-        if(!student.getAttendanceList().get(lectureOfTheDay.getId()).isPresence()) {
-            student.getAttendanceList().get(lectureOfTheDay.getId()).setPresence(true);
+        if(!student.getAttendanceList().get(courseOfTheDay.getId()).isPresence()) {
+            student.getAttendanceList().get(courseOfTheDay.getId()).setPresence(true);
             btnConfirmAttendance.setStyle("-fx-background-color: lightgreen");
         } else {
-            student.getAttendanceList().get(lectureOfTheDay.getId()).setPresence(false);
+            student.getAttendanceList().get(courseOfTheDay.getId()).setPresence(false);
             btnConfirmAttendance.setStyle("-fx-background-color: #ffcccb");
         }
         initCalendar();

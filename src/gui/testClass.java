@@ -1,23 +1,14 @@
 package gui;
 import be.Attendance;
-import be.Lecture;
+import be.Course;
 import be.Student;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.geometry.Insets;
 import javafx.stage.Stage;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
 
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.temporal.TemporalField;
 import java.time.temporal.WeekFields;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
@@ -32,43 +23,43 @@ public class testClass extends Application{
         LocalDate now = LocalDate.now();
         TemporalField fieldISO = WeekFields.of(Locale.FRANCE).dayOfWeek();
         System.out.println("first day is : "+now.with(fieldISO, 2)); // 2015-02-09 (Monday)
-        List<Lecture> lectureList = new ArrayList<>();
+        List<Course> courseList = new ArrayList<>();
         // filling the dates of the lecture with the current dates of the week (for the test)
-        Lecture lecture1 = new Lecture(1,"SCO2", now.with(fieldISO, 1));
-        Lecture lecture2 = new Lecture(2,"SDE2", now.with(fieldISO, 2));
-        Lecture lecture3 = new Lecture(3,"ITO2", now.with(fieldISO, 3));
-        Lecture lecture4 = new Lecture(4,"DBOS2", now.with(fieldISO, 4));
-        Lecture lecture5 = new Lecture(5,"SCO2/SDE2", now.with(fieldISO, 5));
+        Course course1 = new Course(1,"SCO2");
+        Course course2 = new Course(2,"SDE2");
+        Course course3 = new Course(3,"ITO2");
+        Course course4 = new Course(4,"DBOS2");
+        Course course5 = new Course(5,"SCO2/SDE2");
 
-        lectureList.add(lecture1);
-        lectureList.add(lecture2);
-        lectureList.add(lecture3);
-        lectureList.add(lecture4);
-        lectureList.add(lecture5);
+        courseList.add(course1);
+        courseList.add(course2);
+        courseList.add(course3);
+        courseList.add(course4);
+        courseList.add(course5);
 
         Student student1 = new Student(1,"Tawfik Azza","tawf0021@easv.dk","test");
-        student1.validateParticipation(lecture1);
-        student1.validateParticipation(lecture2);
-        student1.validateParticipation(lecture3);
-        student1.validateParticipation(lecture4);
-        student1.validateParticipation(lecture5);
+        student1.validateParticipation(course1);
+        student1.validateParticipation(course2);
+        student1.validateParticipation(course3);
+        student1.validateParticipation(course4);
+        student1.validateParticipation(course5);
 
-        student1.removeParticipation(lecture4);
-        student1.removeParticipation(lecture1);
+        student1.removeParticipation(course4);
+        student1.removeParticipation(course1);
 
         for (Attendance attendance: student1.getAttendanceList().values()) {
             if(attendance.isPresence()) {
                 System.out.println("ATTENDED LECTURES: ");
-                System.out.println("id: "+attendance.getLecture().getId()
-                        +" Name: "+attendance.getLecture().getName()
-                        +" Date: "+attendance.getLecture().getDate());
+                System.out.println("id: "+attendance.getLecture().getId());
+                      //  +" Name: "+attendance.getLecture().getName()
+                //   +" Date: "+attendance.getLecture().getDate());
             }
             if(!attendance.isPresence()) {
                 System.out.println();
                 System.out.println("-------------NOT ATTENDED LECTURES: ");
-                System.out.println("id: "+attendance.getLecture().getId()
-                        +" Name: "+attendance.getLecture().getName()
-                        +" Date: "+attendance.getLecture().getDate());
+                System.out.println("id: "+attendance.getLecture().getId());
+                  //      +" Name: "+attendance.getLecture().getName()
+                   //     +" Date: "+attendance.getLecture().getDate());
             }
         }
 

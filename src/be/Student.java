@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Student extends Person{
 
-    private List<Lecture> lectureList;
+    private List<Course> courseList;
     private HashMap<Integer,Attendance> attendanceList;
     private String password;
 
@@ -17,16 +17,16 @@ public class Student extends Person{
         this.password=password;
     }
 
-    public void validateParticipation(Lecture lecture) {
+    public void validateParticipation(Course course) {
 
-        if(checkParticipation(lecture)) {
-            attendanceList.get(lecture.getId()).setPresence(true);
+        if(checkParticipation(course)) {
+            attendanceList.get(course.getId()).setPresence(true);
         }
 
     }
-    public void removeParticipation(Lecture lecture) {
-        if(checkParticipation(lecture)) {
-            attendanceList.get(lecture.getId()).setPresence(false);
+    public void removeParticipation(Course course) {
+        if(checkParticipation(course)) {
+            attendanceList.get(course.getId()).setPresence(false);
         }
     }
 
@@ -34,25 +34,25 @@ public class Student extends Person{
      * Will return true if the Lecture is associated to the student,
      * false otherwise.
      * */
-    private boolean checkParticipation(Lecture lecture) {
+    private boolean checkParticipation(Course course) {
 
         for(Map.Entry entry:attendanceList.entrySet()) {
             Attendance attendance = (Attendance) entry.getValue();
 
-            if(attendance.getLecture().getId() == lecture.getId()) {
+            if(attendance.getLecture().getId() == course.getId()) {
                 return true;
             }
         }
         return false;
     }
-    public List<Lecture> getLectureList() {
-        return lectureList;
+    public List<Course> getLectureList() {
+        return courseList;
     }
 
-    public void setLectureList(List<Lecture> lectureList) {
-        this.lectureList = lectureList;
-        for (Lecture lecture:lectureList) {
-            attendanceList.put(lecture.getId(), new Attendance(false,lecture));
+    public void setLectureList(List<Course> courseList) {
+        this.courseList = courseList;
+        for (Course course : courseList) {
+            attendanceList.put(course.getId(), new Attendance(false, course));
         }
     }
 
@@ -71,7 +71,7 @@ public class Student extends Person{
                 totalMissedClasses+=1;
             }
         }
-        double total= 100-((totalMissedClasses/lectureList.size())*100);
-        return String.valueOf(total);
+        double total= 100-((totalMissedClasses/ courseList.size())*100);
+        return total +" %";
     }
 }

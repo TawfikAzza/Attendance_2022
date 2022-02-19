@@ -1,4 +1,5 @@
 package be;
+
 /***
  * This class was created in order to store both presence/lecture infos for a student.
  * each student object will hold a HashMap<Integer,Attendance> which will contain the lecture ID as key.
@@ -9,10 +10,10 @@ package be;
 
 public class Attendance {
     private boolean presence;
-    private Lecture lecture;
-    public Attendance(boolean presence,Lecture lecture){
+    private Course course;
+    public Attendance(boolean presence, Course course){
         this.presence = presence;
-        this.lecture = lecture;
+        this.course = course;
     }
 
     public boolean isPresence() {
@@ -23,11 +24,20 @@ public class Attendance {
         this.presence = presence;
     }
 
-    public Lecture getLecture() {
-        return lecture;
+    public Course getLecture() {
+        return course;
     }
 
-    public void setLecture(Lecture lecture) {
-        this.lecture = lecture;
+    public Course getCourse() {
+        return course;
     }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public void setLecture(Course course) {
+        this.course = course;
+    }
+
 }

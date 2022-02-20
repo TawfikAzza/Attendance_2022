@@ -4,26 +4,31 @@ import be.Attendance;
 import be.Student;
 import be.Teacher;
 import gui.Model.StudentModel;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class DisplayTeacherController implements Initializable {
     public AreaChart<?,?> attendancePerDay;
     public BarChart<?,?> attendancePerSubject;
-
-    public LineChart<?,?> attendancePerStudent;
-
     public AnchorPane anchorImg;
     public ProgressBar attendanceProgress;
     public ProgressBar missedProgress;
@@ -85,7 +90,6 @@ public class DisplayTeacherController implements Initializable {
                 nameLabel.setText(student.getName());
                 educationLabel.setText(student.getEducation());
                 emailLabel.setText(student.getEmail());
-                statsLabel.setText("Personalised stats");
 
         });
         setUpProgressBars();
@@ -147,10 +151,25 @@ public class DisplayTeacherController implements Initializable {
     }
 
     public Student getStudent() {
-        return student;
+        return this.student;
     }
 
     public void setStudent(Student student) {
         this.student = student;
+    }
+
+    public void newWindow(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("gui/View/PersonalisedChart.fxml"));
+        Parent root = loader.load();
+        PersonalisedChartController personalisedChartController = loader.getController();
+        personalisedChartController.setMainController(this);
+        personalisedChartController.setStudent(getStudent());
+        personalisedChartController.drawChart();
+
+        Stage stage = new Stage();
+        stage.setTitle("Show more");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }

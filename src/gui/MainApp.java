@@ -39,21 +39,21 @@ public class MainApp extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(MainApp.class
                 .getResource("View/RootLayout.fxml"));
-        rootLayout = (BorderPane) loader.load();
+        rootLayout =  loader.load();
         if(layoutChosen.get().equals("student")) {
             FXMLLoader loaderStudent = new FXMLLoader();
             loaderStudent.setLocation(getClass().getResource("View/DisplayStudent.fxml"));
-            displayStudent = (AnchorPane) loaderStudent.load();
+            displayStudent =  loaderStudent.load();
             rootLayout.setCenter(displayStudent);
         }
         if(layoutChosen.get().equals("teacher")) {
             FXMLLoader loaderTeacher = new FXMLLoader();
             loaderTeacher.setLocation(getClass().getResource("View/DisplayTeacher.fxml"));
-            displayTeacher = (AnchorPane) loaderTeacher.load();
+            displayTeacher = loaderTeacher.load();
             rootLayout.setCenter(displayTeacher);
         }
         // Show the scene containing the root layout.
-        Scene scene = new Scene(rootLayout);
+        Scene scene = new Scene(rootLayout,897,640);
         primaryStage.setScene(scene);
 
         // Give the controller access to the main app.

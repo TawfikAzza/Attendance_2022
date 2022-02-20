@@ -16,9 +16,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="661.0" prefWidth="722.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller.DisplayTeacherController">
+<AnchorPane prefHeight="640.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller.DisplayTeacherController">
    <children>
-      <SplitPane dividerPositions="0.38958333333333334" layoutX="230.0" layoutY="166.0" prefHeight="531.0" prefWidth="767.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.518327605956472" layoutX="230.0" layoutY="166.0" prefHeight="640.0" prefWidth="936.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="316.0">
                <children>
@@ -46,33 +46,33 @@
                                             <items>
                                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                                    <children>
-                                                      <SplitPane dividerPositions="0.5" layoutX="49.0" layoutY="-17.0" orientation="VERTICAL" prefHeight="244.0" prefWidth="258.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <SplitPane dividerPositions="0.5557851239669421" layoutX="49.0" layoutY="-17.0" orientation="VERTICAL" prefHeight="244.0" prefWidth="258.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                         <items>
                                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                                                <children>
-                                                                  <SplitPane dividerPositions="0.3799212598425197" layoutY="-28.0" prefHeight="118.0" prefWidth="256.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <SplitPane dividerPositions="0.2788888888888889" layoutY="-28.0" prefHeight="127.0" prefWidth="452.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                                     <items>
                                                                       <AnchorPane fx:id="anchorImg" minHeight="0.0" minWidth="0.0" prefHeight="116.0" prefWidth="128.0">
                                                                            <children>
-                                                                              <TextArea prefHeight="118.0" prefWidth="98.0" text="Please select &#10;a student in &#10;order to have&#10;an overview &#10;about his/her &#10;stats." />
+                                                                              <TextArea prefHeight="125.0" prefWidth="122.0" text="Please select &#10;a student in &#10;order to have&#10;an overview &#10;about his/her &#10;stats." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                                                            </children></AnchorPane>
                                                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                                                            <children>
-                                                                              <VBox layoutY="-42.0" prefHeight="116.0" prefWidth="154.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                              <VBox layoutY="-42.0" prefHeight="125.0" prefWidth="321.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                                                  <children>
-                                                                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="154.0">
+                                                                                    <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="236.0">
                                                                                        <children>
                                                                                           <Label text="    Full name:    " />
                                                                                           <Label fx:id="nameLabel" />
                                                                                        </children>
                                                                                     </HBox>
-                                                                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="154.0">
+                                                                                    <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="236.0">
                                                                                        <children>
                                                                                           <Label text="    Education:   " />
                                                                                           <Label fx:id="educationLabel" />
                                                                                        </children>
                                                                                     </HBox>
-                                                                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="154.0">
+                                                                                    <HBox alignment="CENTER_LEFT" prefHeight="51.0" prefWidth="236.0">
                                                                                        <children>
                                                                                           <Label text="    E-mail:   " />
                                                                                           <Label fx:id="emailLabel" />
@@ -87,36 +87,59 @@
                                                             </AnchorPane>
                                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                                                <children>
-                                                                  <VBox alignment="CENTER_LEFT" layoutX="72.0" layoutY="-41.0" prefHeight="117.0" prefWidth="256.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <VBox alignment="CENTER_LEFT" layoutX="72.0" layoutY="-41.0" prefHeight="100.0" prefWidth="452.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                                      <children>
-                                                                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                                                                           <children>
-                                                                              <Label prefHeight="18.0" prefWidth="112.0" text="Attendances">
-                                                                                 <font>
-                                                                                    <Font size="14.0" />
-                                                                                 </font>
-                                                                              </Label>
-                                                                              <ProgressBar fx:id="attendanceProgress" prefHeight="20.0" prefWidth="80.0" progress="0.0" />
-                                                                              <Label fx:id="attendanceLabel" text="    Label">
-                                                                                 <font>
-                                                                                    <Font size="14.0" />
-                                                                                 </font></Label>
-                                                                           </children>
-                                                                        </HBox>
-                                                                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                                                                           <children>
-                                                                              <Label prefHeight="18.0" prefWidth="112.0" text="Missed classes">
-                                                                                 <font>
-                                                                                    <Font size="14.0" />
-                                                                                 </font>
-                                                                              </Label>
-                                                                              <ProgressBar fx:id="missedProgress" prefHeight="20.0" prefWidth="80.0" progress="0.0" />
-                                                                              <Label fx:id="missedClassesLabel" text="    Label">
-                                                                                 <font>
-                                                                                    <Font size="14.0" />
-                                                                                 </font></Label>
-                                                                           </children>
-                                                                        </HBox>
+                                                                        <SplitPane dividerPositions="0.575187969924812" prefHeight="160.0" prefWidth="200.0">
+                                                                          <items>
+                                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                                                 <children>
+                                                                                    <VBox layoutX="58.0" layoutY="-74.0" prefHeight="98.0" prefWidth="255.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                                       <children>
+                                                                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                                                                             <children>
+                                                                                                <Label prefHeight="18.0" prefWidth="82.0" text="Attendances:">
+                                                                                                   <font>
+                                                                                                      <Font size="14.0" />
+                                                                                                   </font>
+                                                                                                </Label>
+                                                                                                <Label fx:id="attendanceLabel" prefHeight="18.0" prefWidth="55.0" text="Label">
+                                                                                                   <font>
+                                                                                                      <Font size="14.0" />
+                                                                                                   </font>
+                                                                                                </Label>
+                                                                                                <ProgressBar fx:id="attendanceProgress" prefHeight="20.0" prefWidth="80.0" progress="0.0" />
+                                                                                             </children>
+                                                                                          </HBox>
+                                                                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                                                                             <children>
+                                                                                                <Label prefHeight="18.0" prefWidth="95.0" text="Missed classes">
+                                                                                                   <font>
+                                                                                                      <Font size="14.0" />
+                                                                                                   </font>
+                                                                                                </Label>
+                                                                                                <Label fx:id="missedClassesLabel" prefHeight="18.0" prefWidth="43.0" text="Label">
+                                                                                                   <font>
+                                                                                                      <Font size="14.0" />
+                                                                                                   </font>
+                                                                                                </Label>
+                                                                                                <ProgressBar fx:id="missedProgress" prefHeight="20.0" prefWidth="80.0" progress="0.0" />
+                                                                                             </children>
+                                                                                          </HBox>
+                                                                                       </children>
+                                                                                    </VBox>
+                                                                                 </children>
+                                                                              </AnchorPane>
+                                                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                                                 <children>
+                                                                                    <VBox alignment="CENTER" layoutX="24.0" layoutY="-41.0" prefHeight="98.0" prefWidth="188.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                                       <children>
+                                                                                          <JFXButton onAction="#newWindow" prefHeight="26.0" prefWidth="195.0" text="Show more personalised stats" />
+                                                                                       </children>
+                                                                                    </VBox>
+                                                                                 </children>
+                                                                              </AnchorPane>
+                                                                          </items>
+                                                                        </SplitPane>
                                                                      </children>
                                                                   </VBox>
                                                                </children></AnchorPane>
@@ -136,39 +159,51 @@
                   </SplitPane>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="529.0" prefWidth="385.0">
+          <AnchorPane>
                <children>
-                  <VBox alignment="CENTER" layoutX="14.0" prefHeight="529.0" prefWidth="357.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Label fx:id="statsLabel" alignment="CENTER" prefHeight="37.0" prefWidth="9000000.0" text="Generalised stats" textAlignment="CENTER" underline="true">
-                           <font>
-                              <Font size="30.0" />
-                           </font>
-                        </Label>
-                        <AreaChart fx:id="attendancePerDay" cache="true" legendVisible="false" prefHeight="280.0" prefWidth="444.0" title="Attendance per subject in %">
-                          <xAxis>
-                            <CategoryAxis side="BOTTOM" />
-                          </xAxis>
-                          <yAxis>
-                            <NumberAxis side="LEFT" />
-                          </yAxis>
-                        </AreaChart>
-                        <BarChart fx:id="attendancePerSubject" legendVisible="false" prefHeight="310.0" prefWidth="444.0" title="Attendance per student in %">
-                          <xAxis>
-                            <CategoryAxis side="BOTTOM" />
-                          </xAxis>
-                          <yAxis>
-                            <NumberAxis side="LEFT" />
-                          </yAxis>
-                        </BarChart>
-                        <HBox alignment="BOTTOM_RIGHT" prefHeight="28.0" prefWidth="357.0">
+                  <SplitPane dividerPositions="0.9473270440251572" layoutX="108.0" layoutY="216.0" orientation="VERTICAL" prefHeight="638.0" prefWidth="428.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
-                              <JFXButton alignment="BOTTOM_RIGHT" contentDisplay="CENTER" text="Top absent students" />
-                              <JFXButton alignment="BOTTOM_RIGHT" contentDisplay="CENTER" text="Cancel" />
+                              <VBox alignment="CENTER" layoutX="-113.0" layoutY="-301.0" prefHeight="563.0" prefWidth="426.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label fx:id="statsLabel" alignment="CENTER" prefHeight="37.0" prefWidth="9000000.0" text="Generalised stats" textAlignment="CENTER" underline="true">
+                                       <font>
+                                          <Font size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <AreaChart fx:id="attendancePerDay" cache="true" legendVisible="false" prefHeight="269.0" prefWidth="426.0" title="Attendance per subject in %">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                      </yAxis>
+                                    </AreaChart>
+                                    <BarChart fx:id="attendancePerSubject" legendVisible="false" prefHeight="269.0" prefWidth="426.0" title="Attendance per student in %">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                      </yAxis>
+                                    </BarChart>
+                                 </children>
+                              </VBox>
                            </children>
-                        </HBox>
-                     </children>
-                  </VBox>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <HBox alignment="CENTER_RIGHT" layoutX="45.0" layoutY="-35.0" prefHeight="30.0" prefWidth="426.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <JFXButton text="Top absent students" />
+                                    <JFXButton text="Close window" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
                </children>
             </AnchorPane>
         </items>

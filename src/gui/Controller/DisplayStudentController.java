@@ -1,6 +1,4 @@
 package gui.Controller;
-
-
 import be.Attendance;
 import be.Lecture;
 import be.Student;
@@ -20,7 +18,6 @@ import javafx.scene.text.TextAlignment;
 import java.net.URL;
 
 import java.text.ParseException;
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 import java.time.format.DateTimeFormatter;

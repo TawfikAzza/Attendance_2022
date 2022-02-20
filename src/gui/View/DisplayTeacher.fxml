@@ -1,35 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.AreaChart?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="531.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller.DisplayTeacherController">
+<AnchorPane prefHeight="661.0" prefWidth="722.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller.DisplayTeacherController">
    <children>
-      <SplitPane dividerPositions="0.3784313725490196" layoutX="230.0" layoutY="166.0" prefHeight="531.0" prefWidth="767.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.3715277777777778" layoutX="230.0" layoutY="166.0" prefHeight="531.0" prefWidth="767.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TableView fx:id="studentList" layoutX="-4.0" layoutY="38.0" prefHeight="529.0" prefWidth="286.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <columns>
-                        <TableColumn fx:id="studentName" prefWidth="151.9999656677246" text="Student" />
-                        <TableColumn fx:id="studentAttendance" prefWidth="137.6000518798828" text="Attendance in %" />
-                     </columns>
-                  </TableView>
+                  <SplitPane dividerPositions="0.6176470588235294" orientation="VERTICAL" prefHeight="529.0" prefWidth="286.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <TableView fx:id="studentList" prefHeight="402.0" prefWidth="262.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <columns>
+                                    <TableColumn fx:id="studentName" prefWidth="132.0" text="Student" />
+                                    <TableColumn fx:id="studentAttendance" prefWidth="129.0" text="Attendance in %" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children></AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="135.0" prefWidth="284.0">
+                           <children>
+                              <SplitPane layoutY="-1.0" orientation="VERTICAL" prefHeight="198.0" prefWidth="214.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <items>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                       <children>
+                                          <SplitPane layoutX="14.0" layoutY="-57.0" orientation="VERTICAL" prefHeight="125.0" prefWidth="212.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <items>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                                   <children>
+                                                      <VBox alignment="BOTTOM_LEFT" layoutX="55.0" layoutY="-3.0" prefHeight="194.0" prefWidth="210.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <children>
+                                                            <HBox prefHeight="117.0" prefWidth="258.0">
+                                                               <children>
+                                                                  <ImageView fitHeight="115.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true" />
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER_LEFT" prefHeight="63.0" prefWidth="210.0">
+                                                               <children>
+                                                                  <Label contentDisplay="RIGHT" prefHeight="17.0" prefWidth="114.0" text="Avg. Attendance" />
+                                                                  <ProgressBar prefHeight="20.0" prefWidth="100.0" progress="0.0" />
+                                                                  <ProgressIndicator prefHeight="18.0" prefWidth="44.0" progress="0.0">
+                                                                     <HBox.margin>
+                                                                        <Insets left="10.0" top="15.0" />
+                                                                     </HBox.margin>
+                                                                  </ProgressIndicator>
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="210.0">
+                                                               <children>
+                                                                  <Label contentDisplay="RIGHT" prefHeight="17.0" prefWidth="114.0" text="Missed classes" />
+                                                                  <ProgressBar prefHeight="20.0" prefWidth="100.0" progress="0.0" />
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                            </items>
+                                          </SplitPane>
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="529.0" prefWidth="385.0">
                <children>
-                  <VBox layoutX="97.0" prefHeight="529.0" prefWidth="278.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="97.0" AnchorPane.topAnchor="0.0">
+                  <VBox alignment="CENTER" layoutX="14.0" prefHeight="529.0" prefWidth="357.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <AreaChart fx:id="attendancePerDay" prefHeight="190.0" prefWidth="274.0" title="Attendance per day">
+                        <Label alignment="CENTER" prefHeight="37.0" prefWidth="9000000.0" text="Generalised stats" textAlignment="CENTER" underline="true">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <AreaChart fx:id="attendancePerDay" cache="true" legendVisible="false" prefHeight="280.0" prefWidth="444.0" title="Attendance per subject in %">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
@@ -37,7 +105,7 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </AreaChart>
-                        <BarChart fx:id="attendancePerSubject" prefHeight="190.0" prefWidth="274.0" title="Attendance per subject">
+                        <BarChart fx:id="attendancePerSubject" legendVisible="false" prefHeight="310.0" prefWidth="444.0" title="Attendance per student in %">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
@@ -45,14 +113,12 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </BarChart>
-                        <LineChart fx:id="attendancePerStudent" prefHeight="190.0" prefWidth="274.0" title="Attendance per student">
-                          <xAxis>
-                            <CategoryAxis side="BOTTOM" />
-                          </xAxis>
-                          <yAxis>
-                            <NumberAxis side="LEFT" />
-                          </yAxis>
-                        </LineChart>
+                        <HBox alignment="BOTTOM_RIGHT" prefHeight="28.0" prefWidth="357.0">
+                           <children>
+                              <JFXButton alignment="BOTTOM_RIGHT" contentDisplay="CENTER" text="Top absent students" />
+                              <JFXButton alignment="BOTTOM_RIGHT" contentDisplay="CENTER" text="Cancel" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                </children>

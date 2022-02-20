@@ -10,6 +10,7 @@ public class Student extends Person{
     private List<Lecture> lectureList;
     private HashMap<Integer,Attendance> attendanceList;
     private String password;
+    private String imageLink;
 
     public Student (int id, String name, String email, String password) {
         super(id, name, email, password);
@@ -73,5 +74,13 @@ public class Student extends Person{
         }
         double total= 100-((totalMissedClasses/lectureList.size())*100);
         return String.valueOf(total);
+    }
+
+    public String getImageLink() {
+        return imageLink;
+    }
+
+    public void setImageLink(String imageLink) {
+        this.imageLink = imageLink;
     }
 }

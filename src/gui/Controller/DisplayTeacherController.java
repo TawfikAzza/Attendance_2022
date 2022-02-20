@@ -63,7 +63,7 @@ public class DisplayTeacherController implements Initializable {
         XYChart.Series series= new XYChart.Series();
         for (Student student: studentModel.getAllStudent())
             series.getData().add(new XYChart.Data(student.getName(),Double.parseDouble(student.getAttendance())));
-            attendancePerStudent.getData().add(series);
+        attendancePerSubject.getData().add(series);
 
     }
 

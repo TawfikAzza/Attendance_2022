@@ -56,14 +56,15 @@ public class PersonManager {
         mapStudent = new HashMap<>();
 
         Student student1 = new Student(1,"Tawfik Azza","tawf0021@easv.dk","test");
-
+        student1.setImageURL("Taoufik.jpg");
         Student student2 = new Student(2,"Amin Aouina","amin@easv.dk","test");
         student2.setImageURL("Avatar.jpg");
         Student student3 = new Student(3,"Mads Madsen","madsmadsen@easv.dk","test");
         Student student4 = new Student(4,"Marcus Iversen","marcusi@easv.dk","test");
         Student student5 = new Student(5,"Milos Josek","milosjosek@easv.dk","test");
         Student student6 = new Student(6,"Matej Kuka","matejkuka@easv.dk","test");
-        Student student7 = new Student(7,"Mikkel Bie","mikkelbie@easv.dk","test");
+        Student student7 = new Student(7,"Renars Madnieks","RenarsMadnieks@easv.dk","test");
+        student7.setImageURL("Renars.png");
         Student student8 = new Student(8,"Mareike Steffens","mareikesteffens@easv.dk","test");
         Student student9 = new Student(9,"Chantal Brockmeyer","chantalbrock@easv.dk","test");
         Student student10 = new Student(10,"Adam Lörincz","adamlorincz@easv.dk","test");
@@ -85,6 +86,7 @@ public class PersonManager {
 
         for (Student student:mapStudent.values()){
             student.setLectureList(lectureList);
+            student.setEducation("Computer Science");
         }
 
 

@@ -13,6 +13,16 @@ public class Student extends Person{
     private String password;
     private String imageURL;
 
+    public String getEducation() {
+        return education;
+    }
+
+    public void setEducation(String education) {
+        this.education = education;
+    }
+
+    private String education;
+
     public Student (int id, String name, String email, String password) {
         super(id, name, email, password);
         attendanceList = new HashMap<>();

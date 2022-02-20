@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.AreaChart?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -19,7 +18,7 @@
 
 <AnchorPane prefHeight="661.0" prefWidth="722.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller.DisplayTeacherController">
    <children>
-      <SplitPane dividerPositions="0.3715277777777778" layoutX="230.0" layoutY="166.0" prefHeight="531.0" prefWidth="767.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.38958333333333334" layoutX="230.0" layoutY="166.0" prefHeight="531.0" prefWidth="767.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="316.0">
                <children>
@@ -53,8 +52,35 @@
                                                                <children>
                                                                   <SplitPane dividerPositions="0.3799212598425197" layoutY="-28.0" prefHeight="118.0" prefWidth="256.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                                     <items>
-                                                                      <AnchorPane fx:id="anchorImg" minHeight="0.0" minWidth="0.0" prefHeight="116.0" prefWidth="128.0" />
-                                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                                                                      <AnchorPane fx:id="anchorImg" minHeight="0.0" minWidth="0.0" prefHeight="116.0" prefWidth="128.0">
+                                                                           <children>
+                                                                              <TextArea prefHeight="118.0" prefWidth="98.0" text="Please select &#10;a student in &#10;order to have&#10;an overview &#10;about his/her &#10;stats." />
+                                                                           </children></AnchorPane>
+                                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <VBox layoutY="-42.0" prefHeight="116.0" prefWidth="154.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                                 <children>
+                                                                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="154.0">
+                                                                                       <children>
+                                                                                          <Label text="    Full name:    " />
+                                                                                          <Label fx:id="nameLabel" />
+                                                                                       </children>
+                                                                                    </HBox>
+                                                                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="154.0">
+                                                                                       <children>
+                                                                                          <Label text="    Education:   " />
+                                                                                          <Label fx:id="educationLabel" />
+                                                                                       </children>
+                                                                                    </HBox>
+                                                                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="154.0">
+                                                                                       <children>
+                                                                                          <Label text="    E-mail:   " />
+                                                                                          <Label fx:id="emailLabel" />
+                                                                                       </children>
+                                                                                    </HBox>
+                                                                                 </children>
+                                                                              </VBox>
+                                                                           </children></AnchorPane>
                                                                     </items>
                                                                   </SplitPane>
                                                                </children>
@@ -65,17 +91,16 @@
                                                                      <children>
                                                                         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                                                                            <children>
-                                                                              <Label prefHeight="18.0" prefWidth="112.0" text="Avg. attendance">
+                                                                              <Label prefHeight="18.0" prefWidth="112.0" text="Attendances">
                                                                                  <font>
                                                                                     <Font size="14.0" />
                                                                                  </font>
                                                                               </Label>
-                                                                              <ProgressBar prefHeight="20.0" prefWidth="110.0" progress="0.0" />
-                                                                              <ProgressIndicator progress="0.0">
-                                                                                 <padding>
-                                                                                    <Insets top="15.0" />
-                                                                                 </padding>
-                                                                              </ProgressIndicator>
+                                                                              <ProgressBar fx:id="attendanceProgress" prefHeight="20.0" prefWidth="80.0" progress="0.0" />
+                                                                              <Label fx:id="attendanceLabel" text="    Label">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font></Label>
                                                                            </children>
                                                                         </HBox>
                                                                         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
@@ -85,12 +110,11 @@
                                                                                     <Font size="14.0" />
                                                                                  </font>
                                                                               </Label>
-                                                                              <ProgressBar prefHeight="20.0" prefWidth="110.0" progress="0.0" />
-                                                                              <ProgressIndicator progress="0.0">
-                                                                                 <padding>
-                                                                                    <Insets top="15.0" />
-                                                                                 </padding>
-                                                                              </ProgressIndicator>
+                                                                              <ProgressBar fx:id="missedProgress" prefHeight="20.0" prefWidth="80.0" progress="0.0" />
+                                                                              <Label fx:id="missedClassesLabel" text="    Label">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font></Label>
                                                                            </children>
                                                                         </HBox>
                                                                      </children>
@@ -116,7 +140,7 @@
                <children>
                   <VBox alignment="CENTER" layoutX="14.0" prefHeight="529.0" prefWidth="357.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="37.0" prefWidth="9000000.0" text="Generalised stats" textAlignment="CENTER" underline="true">
+                        <Label fx:id="statsLabel" alignment="CENTER" prefHeight="37.0" prefWidth="9000000.0" text="Generalised stats" textAlignment="CENTER" underline="true">
                            <font>
                               <Font size="30.0" />
                            </font>

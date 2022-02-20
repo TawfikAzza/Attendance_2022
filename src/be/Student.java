@@ -1,6 +1,7 @@
 package be;
 
 
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,7 +11,7 @@ public class Student extends Person{
     private List<Lecture> lectureList;
     private HashMap<Integer,Attendance> attendanceList;
     private String password;
-    private String imageLink;
+    private String imageURL;
 
     public Student (int id, String name, String email, String password) {
         super(id, name, email, password);
@@ -76,11 +77,12 @@ public class Student extends Person{
         return String.valueOf(total);
     }
 
-    public String getImageLink() {
-        return imageLink;
+    public String getImageURL() {
+        return imageURL;
     }
 
-    public void setImageLink(String imageLink) {
-        this.imageLink = imageLink;
+    public void setImageURL(String imageURL) {
+
+        this.imageURL = imageURL;
     }
 }

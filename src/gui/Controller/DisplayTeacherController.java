@@ -1,9 +1,7 @@
 package gui.Controller;
 
-import be.Lecture;
 import be.Student;
 import be.Teacher;
-import bll.PersonManager;
 import gui.Model.StudentModel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,11 +9,10 @@ import javafx.scene.chart.*;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
-import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class DisplayTeacherController implements Initializable {
@@ -23,6 +20,8 @@ public class DisplayTeacherController implements Initializable {
     public BarChart<?,?> attendancePerSubject;
 
     public LineChart<?,?> attendancePerStudent;
+
+    public AnchorPane anchorImg;
     /***
      * This class will host only one teacher as proof of concept. However, it
      * can be easily changed when the class TeacherModel is implemented.
@@ -52,7 +51,14 @@ public class DisplayTeacherController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         updateStudentList();
-        studentList.setOnMouseClicked(event-> setStudent( studentList.getSelectionModel().getSelectedItem()));
+        studentList.setOnMouseClicked(event -> {
+            setStudent( studentList.getSelectionModel().getSelectedItem());
+            ImageView img = new ImageView(studentList.getSelectionModel().getSelectedItem().getImageURL());
+
+            img.fitWidthProperty().bind(anchorImg.widthProperty());
+            img.fitHeightProperty().bind(anchorImg.heightProperty());
+            anchorImg.getChildren().add(img);
+        });
 
         drawAreaChart();
         drawBarChart();

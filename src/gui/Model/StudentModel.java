@@ -28,4 +28,7 @@ public class StudentModel {
     public List<Student> getAllStudent() {
         return personManager.getAllStudent();
     }
+    public List <Lecture>getAllLectures(){
+        return personManager.getLectureList();
+    };
 }

@@ -1,20 +1,28 @@
 package gui.Controller;
 
+import be.Lecture;
 import be.Student;
 import be.Teacher;
 import bll.PersonManager;
 import gui.Model.StudentModel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.*;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class DisplayTeacherController implements Initializable {
+    public AreaChart<?,?> attendancePerDay;
+    public BarChart<?,?> attendancePerSubject;
+
+    public LineChart<?,?> attendancePerStudent;
     /***
      * This class will host only one teacher as proof of concept. However, it
      * can be easily changed when the class TeacherModel is implemented.
@@ -30,10 +38,11 @@ public class DisplayTeacherController implements Initializable {
     private TableView<Student> studentList;
     @FXML
     private TableColumn<Student, String> studentName;
+    private Student student;
 
 
-    private Teacher teacher;
-    private StudentModel studentModel;
+    private final Teacher teacher;
+    private final StudentModel studentModel;
     public DisplayTeacherController(){
         studentModel = new StudentModel();
         teacher = new Teacher(1,"Jeppe Led Moritz","jml@easv.dk","JavaIsFun");
@@ -43,11 +52,56 @@ public class DisplayTeacherController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         updateStudentList();
+        studentList.setOnMouseClicked(event-> setStudent( studentList.getSelectionModel().getSelectedItem()));
+
+        drawAreaChart();
+        drawBarChart();
+        drawLineChart();
     }
+
+    private void drawLineChart() {
+        XYChart.Series series= new XYChart.Series();
+        for (Student student: studentModel.getAllStudent())
+            series.getData().add(new XYChart.Data(student.getName(),Double.parseDouble(student.getAttendance())));
+            attendancePerStudent.getData().add(series);
+
+    }
+
+    private void drawBarChart() {
+        XYChart.Series series= new XYChart.Series();
+
+        for (int i =1; i<studentModel.getAllLectures().size();i++){
+            String lecName = null;
+        int attendanceCounter = 0;
+        int totalCounter=0;
+        for (Student student: studentModel.getAllStudent()){
+             lecName= student.getAttendanceList().get(i).getLecture().getName();
+            if (student.getAttendanceList().get(i).isPresence())
+                attendanceCounter+=1;
+            totalCounter+=1;
+
+        }
+            series.getData().add(new XYChart.Data(lecName,(attendanceCounter/totalCounter)*100) );
+
+        }
+        attendancePerSubject.getData().add(series);
+    }
+
+    private void drawAreaChart() {
+    }
+
     public void updateStudentList() {
         studentName.setCellValueFactory(new PropertyValueFactory<>("name"));
         studentAttendance.setCellValueFactory(new PropertyValueFactory<>("attendance"));
 
         studentList.getItems().setAll(teacher.getStudentList());
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 }

@@ -14,6 +14,11 @@ import java.util.Locale;
 
 public class PersonManager {
     HashMap<Integer,Student> mapStudent;
+
+    public List<Lecture> getLectureList() {
+        return lectureList;
+    }
+
     List<Lecture> lectureList;
     public PersonManager() {
         LocalDate now = LocalDate.now();

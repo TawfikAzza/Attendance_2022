@@ -1,30 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.AreaChart?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="531.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller.DisplayTeacherController">
    <children>
-      <BarChart layoutX="400.0" layoutY="281.0" prefHeight="218.0" prefWidth="330.0">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
-      </BarChart>
-      <Label layoutX="444.0" layoutY="21.0" prefHeight="18.0" prefWidth="185.0" text="Label" />
-      <TableView fx:id="studentList" layoutX="43.0" layoutY="81.0" prefHeight="392.0" prefWidth="294.0">
-        <columns>
-          <TableColumn fx:id="studentName" prefWidth="151.9999656677246" text="C1" />
-          <TableColumn fx:id="studentAttendance" prefWidth="137.6000518798828" text="C2" />
-        </columns>
-      </TableView>
+      <SplitPane dividerPositions="0.3784313725490196" layoutX="230.0" layoutY="166.0" prefHeight="531.0" prefWidth="767.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TableView fx:id="studentList" layoutX="-4.0" layoutY="38.0" prefHeight="529.0" prefWidth="286.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columns>
+                        <TableColumn fx:id="studentName" prefWidth="151.9999656677246" text="Student" />
+                        <TableColumn fx:id="studentAttendance" prefWidth="137.6000518798828" text="Attendance in %" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="529.0" prefWidth="385.0">
+               <children>
+                  <VBox layoutX="97.0" prefHeight="529.0" prefWidth="278.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="97.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AreaChart fx:id="attendancePerDay" prefHeight="190.0" prefWidth="274.0" title="Attendance per day">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </AreaChart>
+                        <BarChart fx:id="attendancePerSubject" prefHeight="190.0" prefWidth="274.0" title="Attendance per subject">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                        <LineChart fx:id="attendancePerStudent" prefHeight="190.0" prefWidth="274.0" title="Attendance per student">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </LineChart>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
    </children>
 </AnchorPane>

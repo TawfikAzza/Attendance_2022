@@ -28,7 +28,6 @@ public class MainApp extends Application {
     public void initLogin() throws Exception {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("View/Login.fxml"));
-        //System.out.println(loader.getLocation());
         Parent root = loader.load();
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);

@@ -69,22 +69,19 @@ public class DisplayTeacherController implements Initializable {
 
     private void drawBarChart() {
         XYChart.Series series= new XYChart.Series();
-
+        double allStudents = studentModel.getAllStudent().size();
         for (int i =1; i<studentModel.getAllLectures().size();i++){
             String lecName = null;
-        int attendanceCounter = 0;
-        int totalCounter=0;
+        double attendanceCounter = 0;
         for (Student student: studentModel.getAllStudent()){
              lecName= student.getAttendanceList().get(i).getLecture().getName();
             if (student.getAttendanceList().get(i).isPresence())
                 attendanceCounter+=1;
-            totalCounter+=1;
-
         }
-            series.getData().add(new XYChart.Data(lecName,(attendanceCounter/totalCounter)*100) );
-
+            series.getData().add(new XYChart.Data(lecName,(attendanceCounter/allStudents)*100));
         }
-        attendancePerSubject.getData().add(series);
+        attendancePerDay.getData().add(series);
+
     }
 
     private void drawAreaChart() {

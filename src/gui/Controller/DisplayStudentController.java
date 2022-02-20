@@ -4,6 +4,7 @@ package gui.Controller;
 import be.Attendance;
 import be.Lecture;
 import be.Student;
+import com.jfoenix.controls.JFXButton;
 import gui.Model.StudentModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,9 +33,14 @@ public class DisplayStudentController implements Initializable {
     @FXML
     private Button btnConfirmAttendance;
     @FXML
+    private JFXButton btnNext;
+    @FXML
+    private JFXButton btnPrevious;
+    @FXML
     private HBox hBoxCalendar, hBoxDays;
     @FXML
     private VBox vBoxCalendar;
+
     @FXML
     private Label lblWeek;
     @FXML
@@ -44,8 +50,6 @@ public class DisplayStudentController implements Initializable {
     private Lecture lectureOfTheDay;
     private LocalDate dateNow;
     private Student student;
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         studentModel = new StudentModel();
@@ -58,7 +62,7 @@ public class DisplayStudentController implements Initializable {
     //TODO: Work on adding new student and maybe new lectures for the weeks to come.
     // For that use the Class PersonManager
     private void initCalendar() throws ParseException {
-        student = studentModel.getStudent(2);
+        student = studentModel.getStudent(1);
         if(dateNow==null) {
             if(dateSelector.getValue()==null) {
                 dateNow = LocalDate.now();
@@ -75,7 +79,6 @@ public class DisplayStudentController implements Initializable {
         hBoxDays.setSpacing(5);
         hBoxCalendar.setSpacing(5);
         btnConfirmAttendance.setStyle("-fx-border-color: lightblue");
-
         /**
          * Filling the calendar with the values of the lectures contained in the attendance
          * HshMap of the student.
@@ -88,12 +91,10 @@ public class DisplayStudentController implements Initializable {
             label.setPrefHeight(252);
             label.setTextAlignment(TextAlignment.CENTER);
             label.setStyle("-fx-border-color: blue;");
-
             labelDays.setPrefWidth(123);
             labelDays.setPrefHeight(20);
             labelDays.setTextAlignment(TextAlignment.CENTER);
             labelDays.setStyle("-fx-background-color: lightblue;");
-
             if(dateNow.with(fieldISO,indexDay).equals(attendance.getLecture().getDate())) {
                 if(attendance.isPresence()) {
                     label.setStyle("-fx-background-color: lightgreen");
@@ -111,6 +112,9 @@ public class DisplayStudentController implements Initializable {
             hBoxDays.getChildren().add(labelDays);
             hBoxCalendar.getChildren().add(label);
 
+            /**
+             *
+             * */
             indexDay++;
             if(attendance.getLecture().getDate().equals(LocalDate.now())) {
                 lectureOfTheDay = attendance.getLecture();
@@ -124,23 +128,22 @@ public class DisplayStudentController implements Initializable {
         int week = dateNow.get ( IsoFields.WEEK_OF_WEEK_BASED_YEAR );
         int weekYear = dateNow.get ( IsoFields.WEEK_BASED_YEAR );
         lblWeek.setText("Week No : "+week);
-
-        /*  String DATE_PATTERN = "dd.MM.yyyy";
-        DateTimeFormatter DATE-FORMATTER = DateTimeFormatter.ofPattern(DATE_PATTERN);
-        LocalDate localDate = LocalDate.now();
-        DayOfWeek firstDayOfWeek = LocalDate.now().getDayOfWeek();
-        WeekFields weekFields = WeekFields.of(firstDayOfWeek,4);
-        WeekFields weekFields =
-            System.out.println("WeekField: "+weekFields.getFirstDayOfWeek());
-        System.out.println("first Day Of week: "+firstDayOfWeek);
+      /*  String DATE_PATTERN = "dd.MM.yyyy";
+        DateTimeFormatter DATEFORMATER = DateTimeFormatter.ofPattern(DATE_PATTERN);
+        LocalDate localDate = LocalDate.now();*/
+       // DayOfWeek firstDayOfWeek = LocalDate.now().getDayOfWeek();
+        //WeekFields weekFields = WeekFields.of(firstDayOfWeek,4);
+        //WeekFields weekFields =
+        //    System.out.println("WeekField: "+weekFields.getFirstDayOfWeek());
+       /* System.out.println("first Day Of week: "+firstDayOfWeek);
         LocalDate localDate1 = LocalDate.parse("2022-03-24");
-        System.out.println(localDate1.getDayOfWeek()+" "+localDate1.getMonth()+" "+localDate1.getYear());
-        LocalDate now = LocalDate.now();
+        System.out.println(localDate1.getDayOfWeek()+" "+localDate1.getMonth()+" "+localDate1.getYear());*/
+      /*  LocalDate now = LocalDate.now();
         TemporalField fieldISO = WeekFields.of(Locale.FRANCE).dayOfWeek();
-        System.out.println("Now Date: "+now.with(fieldISO, 1));
+        System.out.println("Now Date: "+now.with(fieldISO, 1)); // 2015-02-09 (Monday)*/
 
-        System.out.println(localDate);
-        System.out.println(DATE-FORMATTER.format(localDate));
+       /* System.out.println(localDate);
+        System.out.println(DATEFORMATER.format(localDate));
         System.out.println(localDate.plusDays(2));*/
 
     }
@@ -171,6 +174,16 @@ public class DisplayStudentController implements Initializable {
 
 
     public void handleDateSelected(ActionEvent actionEvent) throws ParseException {
+       // System.out.println(dateSelector.getValue().getClass());
+       // LocalDate testDate = DateUtil.parse()
+       /* LocalDate dateSelected = dateSelector.getValue();
+        TemporalField fieldISO = WeekFields.of(Locale.FRANCE).dayOfWeek();
+        TemporalField testDate = WeekFields.of(Locale.FRANCE).weekOfWeekBasedYear();
+        int week = dateSelected.get(IsoFields.WEEK_OF_WEEK_BASED_YEAR);
+        int weekOfYear = dateSelected.get(IsoFields.WEEK_BASED_YEAR);
+        System.out.println(testDate);
+        System.out.println("Now Date: "+dateSelected.with(fieldISO, 1)); // 2015-02-09 (Monday)
+        System.out.println("WeekOfWeek: "+week+" WeekBasedYear: "+weekOfYear);*/
         dateNow =dateSelector.getValue();
         initCalendar();
 

@@ -34,13 +34,24 @@ public class PersonManager {
         Lecture lecture2 = new Lecture(2,"SDE2", now.with(fieldISO, 2));
         Lecture lecture3 = new Lecture(3,"ITO2", now.with(fieldISO, 3));
         Lecture lecture4 = new Lecture(4,"DBOS2", now.with(fieldISO, 4));
-        Lecture lecture5 = new Lecture(5,"SCO2/SDE2", now.with(fieldISO, 5));
+        Lecture lecture5 = new Lecture(5,"Football", now.with(fieldISO, 5));
+
+      /*  Lecture lecture6 = new Lecture(6,"SDE2", now.with(fieldISO, 7));
+        Lecture lecture7 = new Lecture(7,"ITO2", now.with(fieldISO, 8));
+        Lecture lecture8 = new Lecture(8,"DBOS2", now.with(fieldISO, 9));
+        Lecture lecture9 = new Lecture(9,"SCO2", now.with(fieldISO, 10));
+        Lecture lecture10 = new Lecture(10,"BasketBall", now.with(fieldISO, 11));*/
 
         lectureList.add(lecture1);
         lectureList.add(lecture2);
         lectureList.add(lecture3);
         lectureList.add(lecture4);
         lectureList.add(lecture5);
+        /*lectureList.add(lecture6);
+        lectureList.add(lecture7);
+        lectureList.add(lecture8);
+        lectureList.add(lecture9);
+        lectureList.add(lecture10);*/
 
         mapStudent = new HashMap<>();
 

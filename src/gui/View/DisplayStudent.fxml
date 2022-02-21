@@ -23,8 +23,8 @@
                   </VBox>
                         <Label fx:id="lblWeek" layoutX="154.0" layoutY="14.0" prefHeight="26.0" prefWidth="227.0" text="Label" />
                   <DatePicker fx:id="dateSelector" layoutX="421.0" layoutY="15.0" onAction="#handleDateSelected" />
-                  <JFXButton fx:id="btnPrevious" layoutX="25.0" layoutY="61.0" onAction="#displayPreviousWeek" text="&lt;" />
-                  <JFXButton fx:id="btnNext" layoutX="738.0" layoutY="61.0" onAction="#displayNextWeek" text="&gt;" />
+                  <JFXButton fx:id="btnPrevious" buttonType="RAISED" layoutX="25.0" layoutY="61.0" onAction="#displayPreviousWeek" text="&lt;" />
+                  <JFXButton fx:id="btnNext" buttonType="RAISED" layoutX="738.0" layoutY="61.0" onAction="#displayNextWeek" text="&gt;" />
                     </children>
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">

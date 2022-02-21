@@ -71,6 +71,7 @@ public class DisplayTeacherController implements Initializable {
         studentList.setOnMouseClicked(event -> {
             setStudent( studentList.getSelectionModel().getSelectedItem());
             try {
+                System.out.println("getImageURL: "+studentList.getSelectionModel().getSelectedItem().getImageURL());
                 ImageView img = new ImageView(studentList.getSelectionModel().getSelectedItem().getImageURL());
                 img.fitWidthProperty().bind(anchorImg.widthProperty());
                 img.fitHeightProperty().bind(anchorImg.heightProperty());

@@ -65,8 +65,10 @@ public class DisplayStudentController implements Initializable {
                 dateNow = LocalDate.now();
             } else {
                 dateNow = dateSelector.getValue();
+                System.out.println("DateNow After selector:"+dateNow);
             }
         }
+        System.out.println("Date NOw: "+dateNow);
         TemporalField fieldISO = WeekFields.of(Locale.FRANCE).dayOfWeek();
         int indexDay = 1;
         DateTimeFormatter DATE_FORMAT =  DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -82,45 +84,53 @@ public class DisplayStudentController implements Initializable {
          * */
 
         for (Attendance attendance:student.getAttendanceList().values()) {
-            Label label = new Label(attendance.getLecture().getName());
-            Label labelDays = new Label(dateNow.with(fieldISO,indexDay).format(DATE_FORMAT));
-            label.setPrefWidth(123);
-            label.setPrefHeight(252);
-            label.setTextAlignment(TextAlignment.CENTER);
-            label.setStyle("-fx-border-color: blue;");
-            labelDays.setPrefWidth(123);
-            labelDays.setPrefHeight(20);
-            labelDays.setTextAlignment(TextAlignment.CENTER);
-            labelDays.setStyle("-fx-background-color: lightblue;");
-            if(dateNow.with(fieldISO,indexDay).equals(attendance.getLecture().getDate())) {
-                if(attendance.isPresence()) {
-                    label.setStyle("-fx-background-color: lightgreen");
-                }else {
+                Label label = new Label(attendance.getLecture().getName());
+              //  System.out.println("DateNow: " + dateNow.with(fieldISO, indexDay).format(DATE_FORMAT));
+                Label labelDays = new Label(dateNow.with(fieldISO, indexDay).format(DATE_FORMAT));
+                label.setPrefWidth(123);
+                label.setPrefHeight(252);
+                label.setTextAlignment(TextAlignment.CENTER);
+                label.setStyle("-fx-border-color: blue;");
+                labelDays.setPrefWidth(123);
+                labelDays.setPrefHeight(20);
+                labelDays.setTextAlignment(TextAlignment.CENTER);
+                labelDays.setStyle("-fx-background-color: lightblue;");
+            if (indexDay <= 7
+                    && dateNow.get ( IsoFields.WEEK_OF_WEEK_BASED_YEAR ) == attendance.getLecture().getDate().get(IsoFields.WEEK_OF_WEEK_BASED_YEAR)) {
+
+                if (dateNow.with(fieldISO, indexDay).equals(attendance.getLecture().getDate())) {
+                    if (attendance.isPresence()) {
+                        label.setStyle("-fx-background-color: lightgreen");
+                    } else {
+
+                        label.setStyle("-fx-background-color: #ffcccb");
+                    }
+                    label.setText(attendance.getLecture().getName());
+                } else {
+                    System.out.println("DateNow: "+dateNow.with(fieldISO, indexDay)+" Date Lecture: "+attendance.getLecture().getDate()
+                            +" Lecture Name: "+attendance.getLecture().getName());
+                    label.setText("No Lecture");
                     label.setStyle("-fx-background-color: #ffcccb");
                 }
-                label.setText(attendance.getLecture().getName());
-            } else {
-                label.setText("No Lecture");
-                label.setStyle("-fx-background-color: #ffcccb");
-            }
 
-            hBoxDays.setAlignment(Pos.CENTER);
-            hBoxCalendar.setAlignment(Pos.CENTER);
-            hBoxDays.getChildren().add(labelDays);
-            hBoxCalendar.getChildren().add(label);
+                hBoxDays.setAlignment(Pos.CENTER);
+                hBoxCalendar.setAlignment(Pos.CENTER);
+                hBoxDays.getChildren().add(labelDays);
+                hBoxCalendar.getChildren().add(label);
 
-            /**
-             *
-             * */
-            indexDay++;
-            if(attendance.getLecture().getDate().equals(LocalDate.now())) {
-                lectureOfTheDay = attendance.getLecture();
-                btnConfirmAttendance.setText(attendance.getLecture().getName());
-                if(attendance.isPresence()) {
-                    btnConfirmAttendance.setStyle("-fx-background-color: lightgreen");
+                /**
+                 *
+                 * */
+                indexDay++;
+                if (attendance.getLecture().getDate().equals(LocalDate.now())) {
+                    lectureOfTheDay = attendance.getLecture();
+                    btnConfirmAttendance.setText(attendance.getLecture().getName());
+                    if (attendance.isPresence()) {
+                        btnConfirmAttendance.setStyle("-fx-background-color: lightgreen");
+                    }
                 }
             }
-        }
+            }
 
         int week = dateNow.get ( IsoFields.WEEK_OF_WEEK_BASED_YEAR );
         int weekYear = dateNow.get ( IsoFields.WEEK_BASED_YEAR );

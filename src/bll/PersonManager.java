@@ -70,9 +70,9 @@ public class PersonManager {
 
         Student student1 = new Student(1,"Tawfik Azza","tawf0021@easv.dk","test");
 
-        File file = new File("resources/Taoufik.jpg");
-        System.out.println("File: "+file.getAbsolutePath());
-        student1.setImageURL(file.toURI().toString());
+
+
+        student1.setImageURL("Taoufik.jpg");
         Student student2 = new Student(2,"Amin Aouina","amin@easv.dk","test");
         student2.setImageURL("Avatar.jpg");
         Student student3 = new Student(3,"Mads Madsen","madsmadsen@easv.dk","test");
@@ -85,17 +85,17 @@ public class PersonManager {
         Student student9 = new Student(9,"Chantal Brockmeyer","chantalbrock@easv.dk","test");
         Student student10 = new Student(10,"Adam Lörincz","adamlorincz@easv.dk","test");
 
-        Student student11 = new Student(3,"Mustafa Ahmad Alwaro","must2765@easv365.dk","test");
-        Student student12 = new Student(3,"Mikkel Bie","mikk674g@easv365.dk","test");
-        Student student13 = new Student(3,"Diogo Da Costa Queijo","diog0044@easv365.dk","test");
-        Student student14 = new Student(4,"Þorvaldur Máni Danivalsson","thor9734@easv365.dk","test");
-        Student student15 = new Student(5,"Tunay Erkush","tuna0043@easv365.dk","test");
-        Student student16 = new Student(6,"Zahra Gharahchomaghloo","zahr1185@easv365.dk","test");
-        Student student17 = new Student(7,"Daniel Gislason","dani65h7@easv365.dk","test");
+        Student student11 = new Student(11,"Mustafa Ahmad Alwaro","must2765@easv365.dk","test");
+        Student student12 = new Student(12,"Mikkel Bie","mikk674g@easv365.dk","test");
+        Student student13 = new Student(13,"Diogo Da Costa Queijo","diog0044@easv365.dk","test");
+        Student student14 = new Student(14,"Þorvaldur Máni Danivalsson","thor9734@easv365.dk","test");
+        Student student15 = new Student(15,"Tunay Erkush","tuna0043@easv365.dk","test");
+        Student student16 = new Student(16,"Zahra Gharahchomaghloo","zahr1185@easv365.dk","test");
+        Student student17 = new Student(17,"Daniel Gislason","dani65h7@easv365.dk","test");
         student7.setImageURL("Renars.png");
-        Student student18 = new Student(8,"Filip Kobialka","fili5668@easv365.dk","test");
-        Student student19 = new Student(9,"Roman Masár","roma0966@easv365.dk","test");
-        Student student20 = new Student(10,"Sergio Moreno Martinez","serg0971@easv365.dk","test");
+        Student student18 = new Student(18,"Filip Kobialka","fili5668@easv365.dk","test");
+        Student student19 = new Student(19,"Roman Masár","roma0966@easv365.dk","test");
+        Student student20 = new Student(20,"Sergio Moreno Martinez","serg0971@easv365.dk","test");
 
         mapStudent.put(student1.getId(),student1);
         mapStudent.put(student2.getId(),student2);
@@ -133,7 +133,7 @@ public class PersonManager {
          * Validating lectures so the data has some things to look for in the future form (FXML)
          * **/
 
-       // student1.validateParticipation(lecture1);
+        student1.validateParticipation(lecture1);
         student1.validateParticipation(lecture3);
         student2.validateParticipation(lecture2);
         student2.validateParticipation(lecture3);

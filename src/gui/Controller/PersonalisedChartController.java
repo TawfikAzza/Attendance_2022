@@ -42,7 +42,7 @@ public class PersonalisedChartController implements Initializable {
                         attendanceCounter+=1;
                 }
             }
-            series.getData().add(new XYChart.Data(String.valueOf(i),(attendanceCounter)*100));
+            series.getData().add(new XYChart.Data(String.valueOf(LocalDate.now().with(fieldISO, i).getDayOfWeek()),(attendanceCounter)));
         }
         persoChart.getData().add(series);
         }

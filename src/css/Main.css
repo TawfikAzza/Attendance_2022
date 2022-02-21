@@ -1,3 +1,16 @@
 .button{
-    -fx-background-color: blue;
+    -fx-background-color:  #6b6b6b;
+    -fx-text-fill: #fabb2c;
+    -fx-arc-width: 122;
+    -fx-arc-height: 114;
 }
+
+.label{
+    -fx-text-fill: #6b6b6b;
+    -fx-underline: true;
+    -fx-font-size: 26;
+}
+.vbox{
+    -fx-background-color: #fabb2c;
+}
+

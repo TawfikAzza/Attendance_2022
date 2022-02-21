@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="229.0" prefWidth="407.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller.LoginController" stylesheets="@/css/Main.css">
+<AnchorPane fx:id="anchorPane" prefHeight="245.0" prefWidth="360.0" stylesheets="@/css/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller.LoginController">
     <children>
-        <Button fx:id="btnStudent" layoutX="46.0" layoutY="65.0" mnemonicParsing="false" onAction="#openDisplayStudent" prefHeight="114.0" prefWidth="122.0" text="Student" />
-      <Button fx:id="btnTeacher" layoutX="226.0" layoutY="65.0" mnemonicParsing="false" onAction="#openDisplayTeacher" prefHeight="114.0" prefWidth="122.0" text="Teacher" />
-      <Label layoutX="151.0" layoutY="23.0" text="Please select a role:" />
+      <VBox fx:id="vBox" alignment="CENTER" layoutX="41.0" layoutY="19.0" prefHeight="196.0" prefWidth="334.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label text="Please select a role:" />
+            <HBox prefHeight="21.0" prefWidth="360.0" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <JFXButton id="studentBtn" fx:id="btnStudent" onAction="#openDisplayStudent" prefHeight="100.0" prefWidth="110.0" text="Student" />
+                  <VBox prefHeight="100.0" prefWidth="59.0" />
+                  <JFXButton id="teacherBtn" fx:id="btnTeacher" onAction="#openDisplayTeacher" prefHeight="100.0" prefWidth="110.0" text="Teacher" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
     </children>
 </AnchorPane>

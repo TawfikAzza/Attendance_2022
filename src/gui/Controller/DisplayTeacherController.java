@@ -3,7 +3,10 @@ package gui.Controller;
 import be.Attendance;
 import be.Student;
 import be.Teacher;
+import com.jfoenix.controls.JFXButton;
 import gui.Model.StudentModel;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +22,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -38,6 +43,14 @@ public class DisplayTeacherController implements Initializable {
     public Label educationLabel;
     public Label emailLabel;
     public Label statsLabel;
+    public JFXButton topAbsentStudents;
+    public VBox statsVbox;
+    public VBox moreInfosBox;
+    public VBox progressVBox;
+    public VBox studentInfosVBox;
+    public HBox bottomVBox;
+    // public VBox bottomBox ;
+
 
     /***
      * This class will host only one teacher as proof of concept. However, it
@@ -67,16 +80,21 @@ public class DisplayTeacherController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+         cssVBoxes();
+
         updateStudentList();
         studentList.setOnMouseClicked(event -> {
             setStudent( studentList.getSelectionModel().getSelectedItem());
             try {
-                System.out.println("getImageURL: "+studentList.getSelectionModel().getSelectedItem().getImageURL());
                 ImageView img = new ImageView(studentList.getSelectionModel().getSelectedItem().getImageURL());
                 img.fitWidthProperty().bind(anchorImg.widthProperty());
                 img.fitHeightProperty().bind(anchorImg.heightProperty());
                 anchorImg.getChildren().add(img);
-            }catch (NullPointerException npe){};
+            }catch (NullPointerException | IllegalArgumentException exception){
+                anchorImg.getChildren().clear();
+                Label label= new Label("No picture found.");
+                anchorImg.getChildren().add(label);
+            }
             double counterAttendances=0;
             double counterTotal=0;
             for (Attendance attendance : studentList.getSelectionModel().getSelectedItem().getAttendanceList().values()){
@@ -160,6 +178,7 @@ public class DisplayTeacherController implements Initializable {
     }
 
     public void newWindow(ActionEvent actionEvent) throws IOException {
+        if (getStudent()!=null){
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("gui/View/PersonalisedChart.fxml"));
         Parent root = loader.load();
@@ -172,5 +191,12 @@ public class DisplayTeacherController implements Initializable {
         stage.setTitle("Show more");
         stage.setScene(new Scene(root));
         stage.show();
+    }}
+    private void cssVBoxes(){
+        statsVbox.getStyleClass().add("vbox");
+        moreInfosBox.getStyleClass().add("vbox");
+        progressVBox.getStyleClass().add("vbox");
+        studentInfosVBox.getStyleClass().add("vbox");
+        bottomVBox.getStyleClass().add("vbox");
     }
 }

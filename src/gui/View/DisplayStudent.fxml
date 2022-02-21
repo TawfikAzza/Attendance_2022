@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="568.0" prefWidth="790.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller.DisplayStudentController">
     <children>
@@ -24,7 +25,11 @@
                         <Label fx:id="lblWeek" layoutX="154.0" layoutY="14.0" prefHeight="26.0" prefWidth="227.0" text="Label" />
                   <DatePicker fx:id="dateSelector" layoutX="421.0" layoutY="15.0" onAction="#handleDateSelected" />
                   <JFXButton fx:id="btnPrevious" buttonType="RAISED" layoutX="25.0" layoutY="61.0" onAction="#displayPreviousWeek" text="&lt;" />
-                  <JFXButton fx:id="btnNext" buttonType="RAISED" layoutX="738.0" layoutY="61.0" onAction="#displayNextWeek" text="&gt;" />
+                  <JFXButton fx:id="btnNext" buttonType="RAISED" layoutX="738.0" layoutY="61.0" onAction="#displayNextWeek" ripplerFill="#817171" style="-fx-background-color: lightgreen;" text="&gt;">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXButton>
                     </children>
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">

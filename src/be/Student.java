@@ -84,7 +84,9 @@ public class Student extends Person{
             }
         }
         double total= 100-((totalMissedClasses/lectureList.size())*100);
-        return String.valueOf(total);
+
+        String result = String.format("%.2f",total);
+        return result.replace(",",".");
     }
 
     public String getImageURL() {

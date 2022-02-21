@@ -65,10 +65,10 @@ public class DisplayStudentController implements Initializable {
                 dateNow = LocalDate.now();
             } else {
                 dateNow = dateSelector.getValue();
-                System.out.println("DateNow After selector:"+dateNow);
+             //   System.out.println("DateNow After selector:"+dateNow);
             }
         }
-        System.out.println("Date NOw: "+dateNow);
+      //  System.out.println("Date NOw: "+dateNow);
         TemporalField fieldISO = WeekFields.of(Locale.FRANCE).dayOfWeek();
         int indexDay = 1;
         DateTimeFormatter DATE_FORMAT =  DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -107,8 +107,7 @@ public class DisplayStudentController implements Initializable {
                     }
                     label.setText(attendance.getLecture().getName());
                 } else {
-                    System.out.println("DateNow: "+dateNow.with(fieldISO, indexDay)+" Date Lecture: "+attendance.getLecture().getDate()
-                            +" Lecture Name: "+attendance.getLecture().getName());
+
                     label.setText("No Lecture");
                     label.setStyle("-fx-background-color: #ffcccb");
                 }

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="568.0" prefWidth="790.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller.DisplayStudentController">
+<AnchorPane prefHeight="568.0" prefWidth="790.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller.DisplayStudentController" stylesheets="@../../css/DisplayStudent.css">
     <children>
         <SplitPane dividerPositions="0.5776836158192089" layoutY="1.0" orientation="VERTICAL" prefHeight="568.0" prefWidth="792.0">
             <items>

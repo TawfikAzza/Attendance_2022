@@ -4,7 +4,6 @@ package bll;
 import be.Lecture;
 import be.Student;
 
-import java.io.File;
 import java.time.LocalDate;
 import java.time.temporal.TemporalField;
 import java.time.temporal.WeekFields;
@@ -72,15 +71,15 @@ public class PersonManager {
 
 
 
-        student1.setImageURL("Taoufik.jpg");
+        student1.setImageURL("images/Taoufik.jpg");
         Student student2 = new Student(2,"Amin Aouina","amin@easv.dk","test");
-        student2.setImageURL("Avatar.jpg");
+        student2.setImageURL("images/Avatar.jpg");
         Student student3 = new Student(3,"Mads Madsen","madsmadsen@easv.dk","test");
         Student student4 = new Student(4,"Marcus Iversen","marcusi@easv.dk","test");
         Student student5 = new Student(5,"Milos Josek","milosjosek@easv.dk","test");
         Student student6 = new Student(6,"Matej Kuka","matejkuka@easv.dk","test");
         Student student7 = new Student(7,"Renars Madnieks","RenarsMadnieks@easv.dk","test");
-        student7.setImageURL("Renars.png");
+        student7.setImageURL("images/Renars.png");
         Student student8 = new Student(8,"Mareike Steffens","mareikesteffens@easv.dk","test");
         Student student9 = new Student(9,"Chantal Brockmeyer","chantalbrock@easv.dk","test");
         Student student10 = new Student(10,"Adam Lörincz","adamlorincz@easv.dk","test");
@@ -92,7 +91,7 @@ public class PersonManager {
         Student student15 = new Student(15,"Tunay Erkush","tuna0043@easv365.dk","test");
         Student student16 = new Student(16,"Zahra Gharahchomaghloo","zahr1185@easv365.dk","test");
         Student student17 = new Student(17,"Daniel Gislason","dani65h7@easv365.dk","test");
-        student7.setImageURL("Renars.png");
+        student7.setImageURL("images/Renars.png");
         Student student18 = new Student(18,"Filip Kobialka","fili5668@easv365.dk","test");
         Student student19 = new Student(19,"Roman Masár","roma0966@easv365.dk","test");
         Student student20 = new Student(20,"Sergio Moreno Martinez","serg0971@easv365.dk","test");

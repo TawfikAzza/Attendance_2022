@@ -28,6 +28,8 @@ import java.util.ResourceBundle;
 
 public class TeacherDisplayController implements Initializable {
     @FXML
+    private AnchorPane topPane;
+    @FXML
     private AreaChart<?, ?> attendancePerDay;
     @FXML
     private BarChart<?, ?> attendancePerSubject;
@@ -84,12 +86,11 @@ public class TeacherDisplayController implements Initializable {
         studentList.setOnMouseClicked(event -> {
             setStudent(studentList.getSelectionModel().getSelectedItem());
             setUpStudentPicture(getStudent());
-            setUpPersonalisedProgressBars(getStudent());
-
-            nameLabel.setText(student.getName());
-            educationLabel.setText(student.getEducation());
-            emailLabel.setText("       " + student.getEmail());
-
+            if (getStudent()!=null){
+                setUpPersonalisedProgressBars(getStudent());
+                nameLabel.setText(student.getName());
+                educationLabel.setText(student.getEducation());
+                emailLabel.setText("       " + student.getEmail());}
 
         });
         setUpProgressBars();
@@ -212,5 +213,20 @@ public class TeacherDisplayController implements Initializable {
         imgLogo.fitWidthProperty().bind(anchorLogo.widthProperty());
         imgLogo.fitHeightProperty().bind(anchorLogo.heightProperty());
         anchorLogo.getChildren().add(imgLogo);
+    }
+
+    public void closeWindow(ActionEvent actionEvent) {
+        Stage stage = (Stage) topPane.getScene().getWindow();
+        stage.close();
+    }
+
+    public void showTopAbsentStudents(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("gui/View/TopAbsentStudents.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Top absent students");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }

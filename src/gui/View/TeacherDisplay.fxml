@@ -141,7 +141,7 @@
                            <children>
                               <VBox fx:id="statsVbox" alignment="CENTER" layoutX="-113.0" layoutY="-301.0" prefHeight="563.0" prefWidth="426.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Label fx:id="statsLabel" alignment="CENTER" prefHeight="37.0" prefWidth="9000000.0" text="Generalised stats" textAlignment="CENTER" />
+                                    <Label id="very-big-label" fx:id="statsLabel" alignment="CENTER" prefHeight="37.0" prefWidth="9000000.0" text="Generalised stats" textAlignment="CENTER" />
                                     <AreaChart fx:id="attendancePerDay" cache="true" legendVisible="false" prefHeight="269.0" prefWidth="426.0" title="Attendance per subject in %">
                                       <xAxis>
                                         <CategoryAxis side="BOTTOM" />
@@ -167,8 +167,8 @@
                               <HBox fx:id="bottomVBox" alignment="CENTER_RIGHT" layoutX="45.0" layoutY="-35.0" prefHeight="30.0" prefWidth="426.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <JFXButton alignment="CENTER" onAction="#newWindow" prefHeight="26.0" prefWidth="221.0" styleClass="button-teacher" text="Show more personalised stats" />
-                                    <JFXButton fx:id="topAbsentStudents" prefHeight="26.0" prefWidth="206.0" styleClass="button-teacher" text="Top absent students" />
-                                    <JFXButton prefHeight="26.0" prefWidth="139.0" styleClass="button-teacher" text="Close window" />
+                                    <JFXButton onAction="#showTopAbsentStudents" prefHeight="26.0" prefWidth="206.0" styleClass="button-teacher" text="Top absent students" />
+                                    <JFXButton onAction="#closeWindow" prefHeight="26.0" prefWidth="139.0" styleClass="button-teacher" text="Close window" />
                                  </children>
                               </HBox>
                            </children>

@@ -179,9 +179,9 @@ public class StudentDisplayController implements Initializable {
 
 
     public void handleDateSelected(ActionEvent actionEvent) throws ParseException {
-        // System.out.println(dateSelector.getValue().getClass());
-        // LocalDate testDate = DateUtil.parse()
-       /* LocalDate dateSelected = dateSelector.getValue();
+        /*System.out.println(dateSelector.getValue().getClass());
+        LocalDate testDate = DateUtil.parse()
+        LocalDate dateSelected = dateSelector.getValue();
         TemporalField fieldISO = WeekFields.of(Locale.FRANCE).dayOfWeek();
         TemporalField testDate = WeekFields.of(Locale.FRANCE).weekOfWeekBasedYear();
         int week = dateSelected.get(IsoFields.WEEK_OF_WEEK_BASED_YEAR);

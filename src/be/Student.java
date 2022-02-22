@@ -11,6 +11,7 @@ public class Student extends Person{
     private HashMap<Integer,Attendance> attendanceList;
     private String password;
     private String imageURL;
+    
 
     public String getEducation() {
         return education;
@@ -96,4 +97,5 @@ public class Student extends Person{
 
         this.imageURL = imageURL;
     }
+
 }

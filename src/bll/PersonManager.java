@@ -3,17 +3,17 @@ package bll;
 
 import be.Lecture;
 import be.Student;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.time.LocalDate;
 import java.time.temporal.TemporalField;
 import java.time.temporal.WeekFields;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 public class PersonManager {
     private final HashMap<Integer, Student> mapStudent;
+    private ObservableList<String> topAbsentStudents ;
 
     public List<Lecture> getLectureList() {
         return lectureList;
@@ -192,7 +192,6 @@ public class PersonManager {
         student9.validateParticipation(lecture13);
         student9.validateParticipation(lecture14);
         student9.validateParticipation(lecture15);
-        student10.validateParticipation(lecture11);
         student10.validateParticipation(lecture12);
         student10.validateParticipation(lecture13);
         student10.validateParticipation(lecture14);
@@ -257,5 +256,15 @@ public class PersonManager {
 
     public List<Student> getAllStudent() {
         return new ArrayList<>(mapStudent.values());
+    }
+
+    public ObservableList getTopAbsentStudents() {
+        topAbsentStudents = FXCollections.observableArrayList();
+        List<Student>allStudents = getAllStudent();
+        allStudents.sort(Comparator.comparing(Student::getAttendance));
+        for (int i=1; i<=10;i ++){
+            topAbsentStudents.add(allStudents.get(i).getName());
+        }
+        return topAbsentStudents;
     }
 }

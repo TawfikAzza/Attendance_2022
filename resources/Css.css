@@ -99,6 +99,26 @@
     -fx-background-insets: 0;
     -fx-background-radius: 1;
 }
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    -fx-background-color: #024059;
+    -fx-text-fill: white;
+}
+
+.list-cell {
+    -fx-text-fill: black;
+}
+
+.list-cell:odd {
+    -fx-background-color: white;
+}
+
+.list-cell:even {
+    -fx-background-color: #8f8;
+}
+
+.list-cell:filled:hover {
+    -fx-background-color: rgba(0, 138, 230, 0.85);
+}
 
 .progress-bar {
     -fx-accent: rgba(0, 138, 230, 0.85);
@@ -125,6 +145,13 @@
 }
 
 .split-pane:vertical > .split-pane-divider {
-    -fx-border-color: #024059;
-    -fx-background-color: #024059;
+    -fx-background-color: #fabb2c;
+
+}
+.split-pane:horizontal > .split-pane-divider{
+    -fx-background-color: #fabb2c;
+}
+#very-big-label{
+    -fx-font-size: 40;
+    -fx-underline: true;
 }

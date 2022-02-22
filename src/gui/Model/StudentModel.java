@@ -8,6 +8,7 @@ import be.Lecture;
 import be.Student;
 import bll.DateUtil;
 import bll.PersonManager;
+import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,4 +32,8 @@ public class StudentModel {
     public List <Lecture>getAllLectures(){
         return personManager.getLectureList();
     };
+
+    public ObservableList getTopAbsentStudents() {
+        return personManager.getTopAbsentStudents();
+    }
 }

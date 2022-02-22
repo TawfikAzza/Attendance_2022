@@ -133,7 +133,7 @@ public class PersonManager {
          * **/
 
         student1.validateParticipation(lecture1);
-        student1.validateParticipation(lecture3);
+        //student1.validateParticipation(lecture3);
         student2.validateParticipation(lecture2);
         student2.validateParticipation(lecture3);
         student3.validateParticipation(lecture1);

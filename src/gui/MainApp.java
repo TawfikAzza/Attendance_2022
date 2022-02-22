@@ -55,7 +55,7 @@ public class MainApp extends Application {
             primaryStage.setTitle("Teacher window");
         }
         // Show the scene containing the root layout.
-        Scene scene = new Scene(rootLayout,897,640);
+        Scene scene = new Scene(rootLayout,790,640);
         primaryStage.setScene(scene);
 
         // Give the controller access to the main app.

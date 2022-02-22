@@ -45,12 +45,14 @@ public class MainApp extends Application {
             loaderStudent.setLocation(getClass().getResource("View/DisplayStudent.fxml"));
             displayStudent =  loaderStudent.load();
             rootLayout.setCenter(displayStudent);
+            primaryStage.setTitle("Student window");
         }
         if(layoutChosen.get().equals("teacher")) {
             FXMLLoader loaderTeacher = new FXMLLoader();
             loaderTeacher.setLocation(getClass().getResource("View/DisplayTeacher.fxml"));
             displayTeacher = loaderTeacher.load();
             rootLayout.setCenter(displayTeacher);
+            primaryStage.setTitle("Teacher window");
         }
         // Show the scene containing the root layout.
         Scene scene = new Scene(rootLayout,897,640);

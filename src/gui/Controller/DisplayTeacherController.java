@@ -49,7 +49,8 @@ public class DisplayTeacherController implements Initializable {
     public VBox progressVBox;
     public VBox studentInfosVBox;
     public HBox bottomVBox;
-    // public VBox bottomBox ;
+    public Label label;
+    public AnchorPane anchorLogo;
 
 
     /***
@@ -81,6 +82,10 @@ public class DisplayTeacherController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
          cssVBoxes();
+        ImageView imgLogo = new ImageView("EASYDVEST.jpeg");
+        imgLogo.fitWidthProperty().bind(anchorLogo.widthProperty());
+        imgLogo.fitHeightProperty().bind(anchorLogo.heightProperty());
+        anchorLogo.getChildren().add(imgLogo);
 
         updateStudentList();
         studentList.setOnMouseClicked(event -> {
@@ -92,7 +97,7 @@ public class DisplayTeacherController implements Initializable {
                 anchorImg.getChildren().add(img);
             }catch (NullPointerException | IllegalArgumentException exception){
                 anchorImg.getChildren().clear();
-                Label label= new Label("No picture found.");
+                label.setText("No picture available");
                 anchorImg.getChildren().add(label);
             }
             double counterAttendances=0;
@@ -108,7 +113,8 @@ public class DisplayTeacherController implements Initializable {
                 missedClassesLabel.setText("    "+(counterTotal-counterAttendances));
                 nameLabel.setText(student.getName());
                 educationLabel.setText(student.getEducation());
-                emailLabel.setText(student.getEmail());
+                emailLabel.setText("       "+student.getEmail());
+
 
         });
         setUpProgressBars();
@@ -193,8 +199,8 @@ public class DisplayTeacherController implements Initializable {
         stage.show();
     }}
     private void cssVBoxes(){
+        anchorImg.getStyleClass().add("anchorPane");
         statsVbox.getStyleClass().add("vbox");
-        moreInfosBox.getStyleClass().add("vbox");
         progressVBox.getStyleClass().add("vbox");
         studentInfosVBox.getStyleClass().add("vbox");
         bottomVBox.getStyleClass().add("vbox");

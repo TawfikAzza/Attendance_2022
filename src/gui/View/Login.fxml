@@ -10,7 +10,7 @@
     <children>
       <VBox fx:id="vBox" alignment="CENTER" layoutX="41.0" layoutY="19.0" prefHeight="196.0" prefWidth="334.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label text="Please select a role:" />
+            <Label text="Please select an option:" />
             <HBox prefHeight="21.0" prefWidth="360.0" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>

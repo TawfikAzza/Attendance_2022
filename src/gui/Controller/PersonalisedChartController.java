@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 public class PersonalisedChartController implements Initializable {
     public AreaChart<?,?> persoChart;
     Student student;
-    DisplayTeacherController displayTeacherController;
+    TeacherDisplayController teacherDisplayController;
 
 
     public void setStudent(Student student) {
@@ -47,7 +47,7 @@ public class PersonalisedChartController implements Initializable {
         persoChart.getData().add(series);
         }
 
-    public void setMainController(DisplayTeacherController displayTeacherController) {
-        this.displayTeacherController=displayTeacherController;
+    public void setMainController(TeacherDisplayController teacherDisplayController) {
+        this.teacherDisplayController = teacherDisplayController;
     }
 }

@@ -13,13 +13,14 @@ import java.util.List;
 import java.util.Locale;
 
 public class PersonManager {
-    HashMap<Integer,Student> mapStudent;
+    private final HashMap<Integer, Student> mapStudent;
 
     public List<Lecture> getLectureList() {
         return lectureList;
     }
 
     List<Lecture> lectureList;
+
     public PersonManager() {
         LocalDate now = LocalDate.now();
         TemporalField fieldISO = WeekFields.of(Locale.FRANCE).dayOfWeek();
@@ -30,23 +31,23 @@ public class PersonManager {
          * */
         lectureList = new ArrayList<>();
 
-        Lecture lecture1 = new Lecture(1,"SCO2", now.with(fieldISO, 1));
-        Lecture lecture2 = new Lecture(2,"SDE2", now.with(fieldISO, 2));
-        Lecture lecture3 = new Lecture(3,"ITO2", now.with(fieldISO, 3));
-        Lecture lecture4 = new Lecture(4,"DBOS2", now.with(fieldISO, 4));
-        Lecture lecture5 = new Lecture(5,"Football", now.with(fieldISO, 5));
+        Lecture lecture1 = new Lecture(1, "SCO2", now.with(fieldISO, 1));
+        Lecture lecture2 = new Lecture(2, "SDE2", now.with(fieldISO, 2));
+        Lecture lecture3 = new Lecture(3, "ITO2", now.with(fieldISO, 3));
+        Lecture lecture4 = new Lecture(4, "DBOS2", now.with(fieldISO, 4));
+        Lecture lecture5 = new Lecture(5, "Football", now.with(fieldISO, 5));
         LocalDate nextWeek = now.plusDays(7);
-        Lecture lecture6 = new Lecture(6,"SDE2", nextWeek.with(fieldISO, 1));
-        Lecture lecture7 = new Lecture(7,"ITO2", nextWeek.with(fieldISO, 2));
-        Lecture lecture8 = new Lecture(8,"DBOS2", nextWeek.with(fieldISO, 3));
-        Lecture lecture9 = new Lecture(9,"SCO2", nextWeek.with(fieldISO, 4));
-        Lecture lecture10 = new Lecture(10,"BasketBall", nextWeek.with(fieldISO, 5));
+        Lecture lecture6 = new Lecture(6, "SDE2", nextWeek.with(fieldISO, 1));
+        Lecture lecture7 = new Lecture(7, "ITO2", nextWeek.with(fieldISO, 2));
+        Lecture lecture8 = new Lecture(8, "DBOS2", nextWeek.with(fieldISO, 3));
+        Lecture lecture9 = new Lecture(9, "SCO2", nextWeek.with(fieldISO, 4));
+        Lecture lecture10 = new Lecture(10, "BasketBall", nextWeek.with(fieldISO, 5));
         LocalDate previousWeek = now.minusDays(7);
-        Lecture lecture11 = new Lecture(11,"SDE2", previousWeek.with(fieldISO, 1));
-        Lecture lecture12 = new Lecture(12,"ITO2", previousWeek.with(fieldISO, 2));
-        Lecture lecture13 = new Lecture(13,"DBOS2", previousWeek.with(fieldISO, 3));
-        Lecture lecture14 = new Lecture(14,"SCO2", previousWeek.with(fieldISO, 4));
-        Lecture lecture15 = new Lecture(15,"BasketBall", previousWeek.with(fieldISO, 5));
+        Lecture lecture11 = new Lecture(11, "SDE2", previousWeek.with(fieldISO, 1));
+        Lecture lecture12 = new Lecture(12, "ITO2", previousWeek.with(fieldISO, 2));
+        Lecture lecture13 = new Lecture(13, "DBOS2", previousWeek.with(fieldISO, 3));
+        Lecture lecture14 = new Lecture(14, "SCO2", previousWeek.with(fieldISO, 4));
+        Lecture lecture15 = new Lecture(15, "BasketBall", previousWeek.with(fieldISO, 5));
         lectureList.add(lecture1);
         lectureList.add(lecture2);
         lectureList.add(lecture3);
@@ -64,65 +65,63 @@ public class PersonManager {
         lectureList.add(lecture15);
 
 
-
         mapStudent = new HashMap<>();
 
-        Student student1 = new Student(1,"Tawfik Azza","tawf0021@easv.dk","test");
-
+        Student student1 = new Student(1, "Tawfik Azza", "tawf0021@easv.dk", "test");
 
 
         student1.setImageURL("images/Taoufik.jpg");
-        Student student2 = new Student(2,"Amin Aouina","amin@easv.dk","test");
+        Student student2 = new Student(2, "Amin Aouina", "amin@easv.dk", "test");
         student2.setImageURL("images/Avatar.jpg");
-        Student student3 = new Student(3,"Mads Madsen","madsmadsen@easv.dk","test");
-        Student student4 = new Student(4,"Marcus Iversen","marcusi@easv.dk","test");
-        Student student5 = new Student(5,"Milos Josek","milosjosek@easv.dk","test");
-        Student student6 = new Student(6,"Matej Kuka","matejkuka@easv.dk","test");
-        Student student7 = new Student(7,"Renars Madnieks","RenarsMadnieks@easv.dk","test");
+        Student student3 = new Student(3, "Mads Madsen", "madsmadsen@easv.dk", "test");
+        Student student4 = new Student(4, "Marcus Iversen", "marcusi@easv.dk", "test");
+        Student student5 = new Student(5, "Milos Josek", "milosjosek@easv.dk", "test");
+        Student student6 = new Student(6, "Matej Kuka", "matejkuka@easv.dk", "test");
+        Student student7 = new Student(7, "Renars Madnieks", "RenarsMadnieks@easv.dk", "test");
         student7.setImageURL("images/Renars.png");
-        Student student8 = new Student(8,"Mareike Steffens","mareikesteffens@easv.dk","test");
-        Student student9 = new Student(9,"Chantal Brockmeyer","chantalbrock@easv.dk","test");
-        Student student10 = new Student(10,"Adam Lörincz","adamlorincz@easv.dk","test");
+        Student student8 = new Student(8, "Mareike Steffens", "mareikesteffens@easv.dk", "test");
+        Student student9 = new Student(9, "Chantal Brockmeyer", "chantalbrock@easv.dk", "test");
+        Student student10 = new Student(10, "Adam Lörincz", "adamlorincz@easv.dk", "test");
 
-        Student student11 = new Student(11,"Mustafa Ahmad Alwaro","must2765@easv365.dk","test");
-        Student student12 = new Student(12,"Mikkel Bie","mikk674g@easv365.dk","test");
-        Student student13 = new Student(13,"Diogo Da Costa Queijo","diog0044@easv365.dk","test");
-        Student student14 = new Student(14,"Þorvaldur Máni Danivalsson","thor9734@easv365.dk","test");
-        Student student15 = new Student(15,"Tunay Erkush","tuna0043@easv365.dk","test");
-        Student student16 = new Student(16,"Zahra Gharahchomaghloo","zahr1185@easv365.dk","test");
-        Student student17 = new Student(17,"Daniel Gislason","dani65h7@easv365.dk","test");
+        Student student11 = new Student(11, "Mustafa Ahmad Alwaro", "must2765@easv365.dk", "test");
+        Student student12 = new Student(12, "Mikkel Bie", "mikk674g@easv365.dk", "test");
+        Student student13 = new Student(13, "Diogo Da Costa Queijo", "diog0044@easv365.dk", "test");
+        Student student14 = new Student(14, "Þorvaldur Máni Danivalsson", "thor9734@easv365.dk", "test");
+        Student student15 = new Student(15, "Tunay Erkush", "tuna0043@easv365.dk", "test");
+        Student student16 = new Student(16, "Zahra Gharahchomaghloo", "zahr1185@easv365.dk", "test");
+        Student student17 = new Student(17, "Daniel Gislason", "dani65h7@easv365.dk", "test");
         student7.setImageURL("images/Renars.png");
-        Student student18 = new Student(18,"Filip Kobialka","fili5668@easv365.dk","test");
-        Student student19 = new Student(19,"Roman Masár","roma0966@easv365.dk","test");
-        Student student20 = new Student(20,"Sergio Moreno Martinez","serg0971@easv365.dk","test");
+        Student student18 = new Student(18, "Filip Kobialka", "fili5668@easv365.dk", "test");
+        Student student19 = new Student(19, "Roman Masár", "roma0966@easv365.dk", "test");
+        Student student20 = new Student(20, "Sergio Moreno Martinez", "serg0971@easv365.dk", "test");
 
-        mapStudent.put(student1.getId(),student1);
-        mapStudent.put(student2.getId(),student2);
-        mapStudent.put(student3.getId(),student3);
-        mapStudent.put(student4.getId(),student4);
-        mapStudent.put(student5.getId(),student5);
-        mapStudent.put(student6.getId(),student6);
-        mapStudent.put(student7.getId(),student7);
-        mapStudent.put(student8.getId(),student8);
-        mapStudent.put(student9.getId(),student9);
-        mapStudent.put(student10.getId(),student10);
-        mapStudent.put(student11.getId(),student11);
-        mapStudent.put(student12.getId(),student12);
-        mapStudent.put(student13.getId(),student13);
-        mapStudent.put(student14.getId(),student14);
-        mapStudent.put(student15.getId(),student15);
-        mapStudent.put(student16.getId(),student16);
-        mapStudent.put(student17.getId(),student17);
-        mapStudent.put(student18.getId(),student18);
-        mapStudent.put(student19.getId(),student19);
-        mapStudent.put(student20.getId(),student20);
+        mapStudent.put(student1.getId(), student1);
+        mapStudent.put(student2.getId(), student2);
+        mapStudent.put(student3.getId(), student3);
+        mapStudent.put(student4.getId(), student4);
+        mapStudent.put(student5.getId(), student5);
+        mapStudent.put(student6.getId(), student6);
+        mapStudent.put(student7.getId(), student7);
+        mapStudent.put(student8.getId(), student8);
+        mapStudent.put(student9.getId(), student9);
+        mapStudent.put(student10.getId(), student10);
+        mapStudent.put(student11.getId(), student11);
+        mapStudent.put(student12.getId(), student12);
+        mapStudent.put(student13.getId(), student13);
+        mapStudent.put(student14.getId(), student14);
+        mapStudent.put(student15.getId(), student15);
+        mapStudent.put(student16.getId(), student16);
+        mapStudent.put(student17.getId(), student17);
+        mapStudent.put(student18.getId(), student18);
+        mapStudent.put(student19.getId(), student19);
+        mapStudent.put(student20.getId(), student20);
 
 
         /**
          * Assigning the lectures to the students and validating participation
          * */
 
-        for (Student student:mapStudent.values()){
+        for (Student student : mapStudent.values()) {
             student.setLectureList(lectureList);
             student.setEducation("Computer Science");
         }
@@ -250,18 +249,13 @@ public class PersonManager {
         student20.validateParticipation(lecture14);
         student20.validateParticipation(lecture15);
 
-        /****
-         *
-         */
-
-
-
     }
+
     public Student getStudent(int id) {
         return mapStudent.get(id);
     }
-    public List<Student> getAllStudent(){
-        List<Student> studentList= new ArrayList<>(mapStudent.values());
-        return studentList;
+
+    public List<Student> getAllStudent() {
+        return new ArrayList<>(mapStudent.values());
     }
 }

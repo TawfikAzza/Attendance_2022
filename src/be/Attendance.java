@@ -27,7 +27,4 @@ public class Attendance {
         return lecture;
     }
 
-    public void setLecture(Lecture lecture) {
-        this.lecture = lecture;
-    }
 }

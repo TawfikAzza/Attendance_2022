@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="topPane" prefHeight="640.0" prefWidth="897.0" stylesheets="@/Css.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller.DisplayTeacherController">
+<AnchorPane fx:id="topPane" prefHeight="640.0" prefWidth="897.0" stylesheets="@/Css.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller.TeacherDisplayController">
    <children>
       <SplitPane dividerPositions="0.40391061452513966" layoutX="230.0" layoutY="166.0" prefHeight="640.0" prefWidth="936.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -95,14 +95,14 @@
                                                                                        <children>
                                                                                           <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                                                                              <children>
-                                                                                                <Label prefHeight="18.0" prefWidth="82.0" styleClass="big-label-teacher" text="Attendances:" />
+                                                                                                <Label prefHeight="18.0" prefWidth="63.0" styleClass="big-label-teacher" text="Attendances:" />
                                                                                                 <Label fx:id="attendanceLabel" prefHeight="18.0" prefWidth="55.0" styleClass="small-label-teacher" text="  Label" />
                                                                                                 <ProgressBar fx:id="attendanceProgress" prefHeight="20.0" prefWidth="80.0" progress="0.0" />
                                                                                              </children>
                                                                                           </HBox>
                                                                                           <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                                                                              <children>
-                                                                                                <Label prefHeight="18.0" prefWidth="90.0" styleClass="big-label-teacher" text="Missed classes" />
+                                                                                                <Label prefHeight="18.0" prefWidth="69.0" styleClass="big-label-teacher" text="Missed classes" />
                                                                                                 <Label fx:id="missedClassesLabel" prefHeight="18.0" prefWidth="50.0" styleClass="small-label-teacher" text="Label" />
                                                                                                 <ProgressBar fx:id="missedProgress" prefHeight="20.0" prefWidth="80.0" progress="0.0" />
                                                                                              </children>
@@ -166,10 +166,9 @@
                            <children>
                               <HBox fx:id="bottomVBox" alignment="CENTER_RIGHT" layoutX="45.0" layoutY="-35.0" prefHeight="30.0" prefWidth="426.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <JFXButton alignment="CENTER" onAction="#newWindow" prefHeight="26.0" prefWidth="195.0" styleClass="button-teacher" text="Show more personalised stats" />
-                                    <HBox prefHeight="30.0" prefWidth="120.0" />
-                                    <JFXButton fx:id="topAbsentStudents" styleClass="button-teacher" text="Top absent students" />
-                                    <JFXButton styleClass="button-teacher" text="Close window" />
+                                    <JFXButton alignment="CENTER" onAction="#newWindow" prefHeight="26.0" prefWidth="221.0" styleClass="button-teacher" text="Show more personalised stats" />
+                                    <JFXButton fx:id="topAbsentStudents" prefHeight="26.0" prefWidth="206.0" styleClass="button-teacher" text="Top absent students" />
+                                    <JFXButton prefHeight="26.0" prefWidth="139.0" styleClass="button-teacher" text="Close window" />
                                  </children>
                               </HBox>
                            </children>

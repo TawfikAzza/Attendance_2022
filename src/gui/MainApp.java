@@ -1,6 +1,6 @@
 package gui;
 
-import gui.Controller.LoginController;
+import gui.Controller.MainWindowController;
 import gui.Controller.RootLayoutController;
 import javafx.application.Application;
 import javafx.beans.property.SimpleStringProperty;
@@ -27,11 +27,11 @@ public class MainApp extends Application {
     }
     public void initLogin() throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("View/Login.fxml"));
+        loader.setLocation(getClass().getResource("View/MainWindow.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        LoginController controller = loader.getController();
+        MainWindowController controller = loader.getController();
         controller.setMainApp(this);
         primaryStage.show();
     }
@@ -42,14 +42,14 @@ public class MainApp extends Application {
         rootLayout =  loader.load();
         if(layoutChosen.get().equals("student")) {
             FXMLLoader loaderStudent = new FXMLLoader();
-            loaderStudent.setLocation(getClass().getResource("View/DisplayStudent.fxml"));
+            loaderStudent.setLocation(getClass().getResource("View/StudentDisplay.fxml"));
             displayStudent =  loaderStudent.load();
             rootLayout.setCenter(displayStudent);
             primaryStage.setTitle("Student window");
         }
         if(layoutChosen.get().equals("teacher")) {
             FXMLLoader loaderTeacher = new FXMLLoader();
-            loaderTeacher.setLocation(getClass().getResource("View/DisplayTeacher.fxml"));
+            loaderTeacher.setLocation(getClass().getResource("View/TeacherDisplay.fxml"));
             displayTeacher = loaderTeacher.load();
             rootLayout.setCenter(displayTeacher);
             primaryStage.setTitle("Teacher window");

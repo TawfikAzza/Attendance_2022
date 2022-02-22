@@ -28,6 +28,7 @@ import java.util.*;
 
 public class DisplayStudentController implements Initializable {
 
+    public Label lblWeek0;
     @FXML
     private JFXButton btnNext,btnConfirmAttendance;
     @FXML
@@ -133,6 +134,8 @@ public class DisplayStudentController implements Initializable {
         int week = dateNow.get ( IsoFields.WEEK_OF_WEEK_BASED_YEAR );
         int weekYear = dateNow.get ( IsoFields.WEEK_BASED_YEAR );
         lblWeek.setText("Week No : "+week);
+        lblWeek0.setText("Week No : "+week);
+
       /*  String DATE_PATTERN = "dd.MM.yyyy";
         DateTimeFormatter DATEFORMATER = DateTimeFormatter.ofPattern(DATE_PATTERN);
         LocalDate localDate = LocalDate.now();*/

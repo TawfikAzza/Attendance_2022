@@ -8,17 +8,17 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="245.0" prefWidth="360.0" stylesheets="@/css/Main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller.LoginController">
+<AnchorPane fx:id="anchorPane" prefHeight="245.0" prefWidth="360.0" stylesheets="@/Css.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller.LoginController">
     <children>
       <VBox fx:id="vBox" alignment="CENTER" layoutX="41.0" layoutY="19.0" prefHeight="196.0" prefWidth="334.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label text="Please select an option:" />
+            <Label id="label-main" text="Please select an option:" />
             <HBox prefHeight="21.0" prefWidth="360.0" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <JFXButton id="studentBtn" fx:id="btnStudent" contentDisplay="TOP" onAction="#openDisplayStudent" prefHeight="100.0" prefWidth="110.0" text="Student">
                      <graphic>
-                        <ImageView fitHeight="107.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="107.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" styleClass="button-main">
                            <image>
                               <Image url="@/images/student.png" />
                            </image>
@@ -27,7 +27,7 @@
                   <VBox prefHeight="100.0" prefWidth="59.0" />
                   <JFXButton id="teacherBtn" fx:id="btnTeacher" contentDisplay="TOP" onAction="#openDisplayTeacher" prefHeight="100.0" prefWidth="110.0" text="Teacher">
                      <graphic>
-                        <ImageView fitHeight="107.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="107.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" styleClass="button-main">
                            <image>
                               <Image url="@/images/teacher.png" />
                            </image>

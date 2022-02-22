@@ -9,34 +9,46 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="568.0" prefWidth="790.0" stylesheets="@../../css/DisplayStudent.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller.DisplayStudentController">
+<AnchorPane prefHeight="568.0" prefWidth="790.0" stylesheets="@/Css.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller.DisplayStudentController">
     <children>
-        <SplitPane dividerPositions="0.5776836158192089" layoutY="1.0" orientation="VERTICAL" prefHeight="568.0" prefWidth="792.0">
+        <SplitPane dividerPositions="0.5776836158192089" layoutY="1.0" orientation="VERTICAL" prefHeight="569.0" prefWidth="792.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="188.0" prefWidth="790.0" stylesheets="@../../css/DisplayStudent.css">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="188.0" prefWidth="790.0">
                     <children>
-                  <VBox fx:id="vBoxCalendar" layoutX="88.0" layoutY="47.0">
+                  <VBox fx:id="vBoxCalendar" layoutX="88.0" layoutY="47.0" prefHeight="323.0" prefWidth="788.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
+                        <HBox alignment="CENTER" prefHeight="52.0" prefWidth="790.0">
+                           <children>
+                              <JFXButton fx:id="btnPrevious" buttonType="RAISED" onAction="#displayPreviousWeek" styleClass="button-student" text="&lt;">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </JFXButton>
+                              <HBox alignment="CENTER" prefHeight="52.0" prefWidth="11.0" />
+                                    <Label fx:id="lblWeek" prefHeight="26.0" prefWidth="123.0" text="Label" />
+                              <DatePicker fx:id="dateSelector" onAction="#handleDateSelected" />
+                              <HBox alignment="CENTER" prefHeight="52.0" prefWidth="148.0" />
+                              <Label fx:id="lblWeek0" prefHeight="26.0" prefWidth="77.0" text="Label" />
+                              <JFXButton fx:id="btnNext" buttonType="RAISED" onAction="#displayNextWeek" ripplerFill="#817171" styleClass="button-student" text="&gt;">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </HBox>
                         <HBox fx:id="hBoxDays" prefHeight="20.0" prefWidth="615.0" />
                               <HBox fx:id="hBoxCalendar" prefHeight="252.0" prefWidth="615.0" />
                      </children>
                   </VBox>
-                        <Label fx:id="lblWeek" layoutX="154.0" layoutY="14.0" prefHeight="26.0" prefWidth="227.0" text="Label" />
-                  <DatePicker fx:id="dateSelector" layoutX="421.0" layoutY="15.0" onAction="#handleDateSelected" />
-                  <JFXButton fx:id="btnPrevious" buttonType="RAISED" layoutX="25.0" layoutY="61.0" onAction="#displayPreviousWeek" text="&lt;">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font></JFXButton>
-                  <JFXButton fx:id="btnNext" buttonType="RAISED" layoutX="738.0" layoutY="61.0" onAction="#displayNextWeek" ripplerFill="#817171" text="&gt;">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </JFXButton>
                     </children>
                 </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" stylesheets="@../../css/DisplayStudent.css">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                     <children>
-                  <JFXButton fx:id="btnConfirmAttendance" layoutX="262.0" layoutY="40.0" onAction="#confirmAttendance" prefHeight="150.0" prefWidth="275.0" />
+                  <HBox alignment="CENTER" layoutX="162.0" layoutY="81.0" prefHeight="236.0" prefWidth="788.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <JFXButton fx:id="btnConfirmAttendance" onAction="#confirmAttendance" prefHeight="150.0" prefWidth="275.0" />
+                     </children>
+                  </HBox>
                     </children>
                 </AnchorPane>
             </items>

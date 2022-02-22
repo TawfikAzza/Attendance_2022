@@ -5,8 +5,6 @@ import be.Student;
 import be.Teacher;
 import com.jfoenix.controls.JFXButton;
 import gui.Model.StudentModel;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,14 +17,12 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -82,7 +78,7 @@ public class DisplayTeacherController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
          cssVBoxes();
-        ImageView imgLogo = new ImageView("EASYDVEST.jpeg");
+        ImageView imgLogo = new ImageView("images/EASYDVEST.jpeg");
         imgLogo.fitWidthProperty().bind(anchorLogo.widthProperty());
         imgLogo.fitHeightProperty().bind(anchorLogo.heightProperty());
         anchorLogo.getChildren().add(imgLogo);

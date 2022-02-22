@@ -1,20 +1,75 @@
-.root{
+.root {
     -fx-background-color: #fabb2c;
 }
 
-.table-view{
+.button-teacher {
+    -fx-background-color: #024059;
+    -fx-text-fill: white;
+}
+
+.big-label-teacher {
+    -fx-text-fill: #6b6b6b;
+    -fx-font-weight: bold;
+    -fx-font-size: 12;
+}
+
+.small-label-teacher {
+    -fx-text-fill: white;
+}
+
+.button-student {
+    -fx-background-color: #024059;
+    -fx-text-fill: white;
+}
+
+#btnConfirmAttendance {
+    -fx-background-color: #024059;
+    -fx-text-fill: white;
+    -fx-background-radius: 100;
+}
+
+.button-main {
+    -fx-background-color: #6b6b6b;
+    -fx-text-fill: #fabb2c;
+    -fx-arc-width: 122;
+    -fx-arc-height: 114;
+}
+
+#label-main {
+    -fx-text-fill: #6b6b6b;
+    -fx-underline: true;
+    -fx-font-size: 26;
+}
+
+.anchorPane {
+    -fx-background-color: #fabb2c;
+}
+
+.borderPane {
+    -fx-background-color: #fabb2c;
+}
+
+.vbox {
+    -fx-background-color: #fabb2c;
+}
+
+.HBox {
+    -fx-background-color: #fabb2c;
+}
+
+.table-view {
     -fx-background-color: transparent;
 }
 
-.table-view:focused{
+.table-view:focused {
     -fx-background-color: transparent;
 }
 
-.table-view .column-header-background{
+.table-view .column-header-background {
     -fx-background-color: linear-gradient(#024059 100%, #FA2C2CFF 0%);
 }
 
-.table-view .column-header-background .label{
+.table-view .column-header-background .label {
     -fx-background-color: transparent;
     -fx-text-fill: white;
 }
@@ -23,17 +78,17 @@
     -fx-background-color: transparent;
 }
 
-.table-view .table-cell{
+.table-view .table-cell {
     -fx-text-fill: white;
 }
 
-.table-row-cell{
+.table-row-cell {
     -fx-background-color: -fx-table-cell-border-color, #009ee2;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em; /* 0 */
 }
 
-.table-row-cell:odd{
+.table-row-cell:odd {
     -fx-background-color: -fx-table-cell-border-color, #005797;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em; /* 0 */
@@ -45,12 +100,6 @@
     -fx-background-radius: 1;
 }
 
-.vbox{
-    -fx-background-color: #fabb2c;
-}
-.anchorPane{
-    -fx-background-color: #fabb2c;
-}
 .progress-bar {
     -fx-accent: rgba(0, 138, 230, 0.85);
     -fx-border-color: transparent;
@@ -71,19 +120,11 @@
     -fx-background-color: white;
 }
 
-.split-pane{
+.split-pane {
     -fx-background-color: #fabb2c;
 }
 
-#bigLabel{
-    -fx-text-fill: #6b6b6b;
-    -fx-font-weight: bold;
-    -fx-font-size: 12;
-}
-#smallLabel{
-    -fx-text-fill: white;
-}
-.button{
-    -fx-background-color:  #024059;
-    -fx-text-fill: white;
+.split-pane:vertical > .split-pane-divider {
+    -fx-border-color: #024059;
+    -fx-background-color: #024059;
 }

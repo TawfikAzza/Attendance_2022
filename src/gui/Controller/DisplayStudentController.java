@@ -27,10 +27,9 @@ import java.time.temporal.WeekFields;
 import java.util.*;
 
 public class DisplayStudentController implements Initializable {
+
     @FXML
-    private Button btnConfirmAttendance;
-    @FXML
-    private JFXButton btnNext;
+    private JFXButton btnNext,btnConfirmAttendance;
     @FXML
     private JFXButton btnPrevious;
     @FXML

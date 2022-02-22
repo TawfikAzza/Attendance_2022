@@ -82,10 +82,10 @@ public class DisplayTeacherController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
          cssVBoxes();
-        /*ImageView imgLogo = new ImageView("../resources/EASYDVEST.jpeg");
+        ImageView imgLogo = new ImageView("EASYDVEST.jpeg");
         imgLogo.fitWidthProperty().bind(anchorLogo.widthProperty());
         imgLogo.fitHeightProperty().bind(anchorLogo.heightProperty());
-        anchorLogo.getChildren().add(imgLogo);*/
+        anchorLogo.getChildren().add(imgLogo);
 
         updateStudentList();
         studentList.setOnMouseClicked(event -> {

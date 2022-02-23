@@ -155,3 +155,14 @@
     -fx-font-size: 40;
     -fx-underline: true;
 }
+#studentBtn{
+    -fx-background-image:  url(/teacher.png);
+    -fx-background-size:  cover;
+}
+#teacherBtn{
+    -fx-background-image: url(/student.png);
+    -fx-background-size:  cover;
+}
+.borderPane{
+    -fx-background-color: #fabb2c;
+}

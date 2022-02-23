@@ -14,9 +14,6 @@ import javafx.stage.Stage;
 
 public class MainApp extends Application {
     private Stage primaryStage;
-    private AnchorPane displayStudent;
-    private AnchorPane displayTeacher;
-    private BorderPane rootLayout;
     private StringProperty layoutChosen;
 
     @Override
@@ -39,18 +36,18 @@ public class MainApp extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(MainApp.class
                 .getResource("View/RootLayout.fxml"));
-        rootLayout =  loader.load();
+        BorderPane rootLayout = loader.load();
         if(layoutChosen.get().equals("student")) {
             FXMLLoader loaderStudent = new FXMLLoader();
             loaderStudent.setLocation(getClass().getResource("View/StudentDisplay.fxml"));
-            displayStudent =  loaderStudent.load();
+            AnchorPane displayStudent = loaderStudent.load();
             rootLayout.setCenter(displayStudent);
             primaryStage.setTitle("Student window");
         }
         if(layoutChosen.get().equals("teacher")) {
             FXMLLoader loaderTeacher = new FXMLLoader();
             loaderTeacher.setLocation(getClass().getResource("View/TeacherDisplay.fxml"));
-            displayTeacher = loaderTeacher.load();
+            AnchorPane displayTeacher = loaderTeacher.load();
             rootLayout.setCenter(displayTeacher);
             primaryStage.setTitle("Teacher window");
         }
@@ -66,14 +63,6 @@ public class MainApp extends Application {
     public static void main(String[] args) {
             Application.launch();
         }
-
-    public String getLayoutChosen() {
-        return layoutChosen.get();
-    }
-
-    public StringProperty layoutChosenProperty() {
-        return layoutChosen;
-    }
 
     public void setLayoutChosen(String layoutChosen) {
         this.layoutChosen.set(layoutChosen);

@@ -70,7 +70,7 @@ public class PersonManager {
         Student student1 = new Student(1, "Tawfik Azza", "tawf0021@easv.dk", "test");
 
 
-        student1.setImageURL("images/Taoufik.jpg");
+        student1.setImageURL("Taoufik.jpg");
         Student student2 = new Student(2, "Amin Aouina", "amin@easv.dk", "test");
         student2.setImageURL("images/Avatar.jpg");
         Student student3 = new Student(3, "Mads Madsen", "madsmadsen@easv.dk", "test");

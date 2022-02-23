@@ -263,7 +263,7 @@ public class PersonManager {
         List<Student>allStudents = getAllStudent();
         allStudents.sort(Comparator.comparing(Student::getAttendance));
         for (int i=1; i<=10;i ++){
-            topAbsentStudents.add(allStudents.get(i).getName());
+            topAbsentStudents.add(allStudents.get(i).getName()+" : "+allStudents.get(i).getAttendance()+"%");
         }
         return topAbsentStudents;
     }

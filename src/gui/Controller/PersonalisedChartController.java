@@ -2,6 +2,7 @@ package gui.Controller;
 
 import be.Attendance;
 import be.Student;
+import bll.DateUtil;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.XYChart;
@@ -32,8 +33,10 @@ public class PersonalisedChartController implements Initializable {
     }
 
     public void drawChart() {
+
         XYChart.Series series= new XYChart.Series();
         TemporalField fieldISO = WeekFields.of(Locale.FRANCE).dayOfWeek();
+        LocalDate dateLastWeek = LocalDate.now().minusDays(7);
         for (int i = 1 ;i<7;i++){
             double attendanceCounter=0;
             for (Attendance attendance : this.student.getAttendanceList().values()){
@@ -41,9 +44,15 @@ public class PersonalisedChartController implements Initializable {
                     if (attendance.isPresence())
                         attendanceCounter+=1;
                 }
+                if (attendance.getLecture().getDate().equals(dateLastWeek.with(fieldISO,i))){
+                    if (attendance.isPresence())
+                        attendanceCounter+=1;
+                }
             }
             series.getData().add(new XYChart.Data(String.valueOf(LocalDate.now().with(fieldISO, i).getDayOfWeek()),(attendanceCounter)));
         }
+
+
         persoChart.getData().add(series);
         }
 

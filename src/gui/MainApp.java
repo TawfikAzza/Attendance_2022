@@ -26,7 +26,7 @@ public class MainApp extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("View/MainWindow.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root,301,218);
         primaryStage.setScene(scene);
         MainWindowController controller = loader.getController();
         controller.setMainApp(this);

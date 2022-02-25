@@ -7,14 +7,19 @@ import com.jfoenix.controls.JFXButton;
 import gui.Model.StudentModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 
 import java.text.ParseException;
@@ -28,6 +33,8 @@ import java.util.*;
 
 public class StudentDisplayController implements Initializable {
 
+    @FXML
+    private JFXButton btnStatAttendance;
     @FXML
     private Label lblWeek0;
     @FXML
@@ -154,7 +161,7 @@ public class StudentDisplayController implements Initializable {
     }
 
     @FXML
-    void confirmAttendance(ActionEvent event) throws ParseException {
+    private void confirmAttendance(ActionEvent event) throws ParseException {
         if (!student.getAttendanceList().get(lectureOfTheDay.getId()).isPresence()) {
             student.getAttendanceList().get(lectureOfTheDay.getId()).setPresence(true);
             btnConfirmAttendance.setStyle("-fx-background-color: lightgreen");
@@ -164,9 +171,25 @@ public class StudentDisplayController implements Initializable {
         }
         initCalendar();
     }
-
     @FXML
-    void displayNextWeek(ActionEvent event) throws ParseException {
+    private void showStudentStat(ActionEvent actionEvent) throws IOException {
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getClassLoader().getResource("gui/View/PersonalisedChart.fxml"));
+            Parent root = loader.load();
+            PersonalisedChartController personalisedChartController = loader.getController();
+            //personalisedChartController.setMainController(this);
+            personalisedChartController.setStudent(studentModel.getStudent(1));
+            personalisedChartController.drawChart();
+
+            Stage stage = new Stage();
+            stage.setTitle("Show more");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+    }
+    @FXML
+    private void displayNextWeek(ActionEvent event) throws ParseException {
         dateNow = dateNow.plusDays(7);
         initCalendar();
     }
@@ -178,7 +201,8 @@ public class StudentDisplayController implements Initializable {
     }
 
 
-    public void handleDateSelected(ActionEvent actionEvent) throws ParseException {
+    @FXML
+    private void handleDateSelected(ActionEvent actionEvent) throws ParseException {
         /*System.out.println(dateSelector.getValue().getClass());
         LocalDate testDate = DateUtil.parse()
         LocalDate dateSelected = dateSelector.getValue();
@@ -193,4 +217,6 @@ public class StudentDisplayController implements Initializable {
         initCalendar();
 
     }
+
+
 }

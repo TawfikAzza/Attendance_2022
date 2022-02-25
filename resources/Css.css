@@ -31,7 +31,11 @@
     -fx-text-fill: white;
     -fx-background-radius: 100;
 }
-
+#btnStatAttendance {
+    -fx-background-color: #024059;
+    -fx-text-fill: white;
+    -fx-background-radius: 100;
+}
 .button-main {
     -fx-background-color: #6b6b6b;
     -fx-text-fill: #fabb2c;

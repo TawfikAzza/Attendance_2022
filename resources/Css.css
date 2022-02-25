@@ -22,6 +22,10 @@
     -fx-text-fill: white;
 }
 
+#small-main-label{
+    -fx-text-fill: #6b6b6b;
+}
+
 #btnConfirmAttendance {
     -fx-background-color: #024059;
     -fx-text-fill: white;
@@ -38,7 +42,6 @@
 #label-main {
     -fx-text-fill: #6b6b6b;
     -fx-underline: true;
-    -fx-font-size: 26;
 }
 
 .anchorPane {
@@ -162,6 +165,7 @@
 #teacherBtn{
     -fx-background-image: url(/teacher.png);
     -fx-background-size:  cover;
+
 }
 .borderPane{
     -fx-background-color: #fabb2c;

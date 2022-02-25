@@ -6,14 +6,11 @@
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane fx:id="borderPane" stylesheets="@/Css.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller.MainWindowController">
-   <top>
-      <Label id="label-main" fx:id="testLabel" alignment="CENTER" text="Please select an option:" textAlignment="CENTER" BorderPane.alignment="CENTER" />
-   </top>
    <left>
       <VBox fx:id="vBoxStudent" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <JFXButton id="studentBtn" fx:id="btnStudent" contentDisplay="TOP" onAction="#openDisplayStudent" />
-            <Label text="Student" />
+            <Label id="small-main-label" fx:id="studentLabel" alignment="BOTTOM_CENTER" text="Student" />
          </children>
       </VBox>
    </left>
@@ -21,8 +18,11 @@
       <VBox fx:id="vBoxTeacher" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <JFXButton id="teacherBtn" fx:id="btnTeacher" contentDisplay="TOP" onAction="#openDisplayTeacher" />
-            <Label text="Teacher" />
+            <Label id="small-main-label" fx:id="teacherLabel" alignment="BOTTOM_CENTER" text="Teacher" />
          </children>
       </VBox>
    </right>
+   <top>
+      <Label id="label-main" fx:id="mainLabel" alignment="CENTER" text="Please select an option:" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+   </top>
 </BorderPane>

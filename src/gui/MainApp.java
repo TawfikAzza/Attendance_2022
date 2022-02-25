@@ -26,10 +26,11 @@ public class MainApp extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("View/MainWindow.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root,301,218);
+        Scene scene = new Scene(root,301,200);
         primaryStage.setScene(scene);
         MainWindowController controller = loader.getController();
         controller.setMainApp(this);
+        primaryStage.setTitle("Main window");
         primaryStage.show();
     }
     public void initRootLayout() throws Exception {

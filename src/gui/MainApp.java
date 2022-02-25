@@ -30,8 +30,8 @@ public class MainApp extends Application {
 
         primaryStage.setScene(scene);
 
-        //primaryStage.minWidthProperty().bind(scene.heightProperty().multiply(2));
-        //primaryStage.minHeightProperty().bind(scene.widthProperty().divide(2));
+        primaryStage.minWidthProperty().bind(scene.heightProperty().multiply(2));
+        primaryStage.minHeightProperty().bind(scene.widthProperty().divide(2));
 
         MainWindowController controller = loader.getController();
         controller.setMainApp(this);
@@ -43,12 +43,18 @@ public class MainApp extends Application {
         loader.setLocation(MainApp.class
                 .getResource("View/RootLayout.fxml"));
         BorderPane rootLayout = loader.load();
+        primaryStage.minWidthProperty().unbind();
+        primaryStage.minHeightProperty().unbind();
+        primaryStage.setMinHeight(640);
+        primaryStage.setMinWidth(790);
         if(layoutChosen.get().equals("student")) {
             FXMLLoader loaderStudent = new FXMLLoader();
             loaderStudent.setLocation(getClass().getResource("View/StudentDisplay.fxml"));
             AnchorPane displayStudent = loaderStudent.load();
             rootLayout.setCenter(displayStudent);
             primaryStage.setTitle("Student window");
+            primaryStage.resizableProperty().set(false);
+
         }
         if(layoutChosen.get().equals("teacher")) {
             FXMLLoader loaderTeacher = new FXMLLoader();
@@ -57,6 +63,7 @@ public class MainApp extends Application {
             rootLayout.setCenter(displayTeacher);
             primaryStage.setTitle("Teacher window");
         }
+
         // Show the scene containing the root layout.
         Scene scene = new Scene(rootLayout,790,640);
         primaryStage.setScene(scene);

@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -53,8 +54,6 @@ public class MainWindowController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-
 
         vBoxStudent.prefWidthProperty().bind(borderPane.widthProperty().divide(10).multiply(4));
         vBoxStudent.prefHeightProperty().bind(borderPane.heightProperty().divide(2));

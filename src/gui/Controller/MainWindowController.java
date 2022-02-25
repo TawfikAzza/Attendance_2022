@@ -54,6 +54,8 @@ public class MainWindowController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+
+
         vBoxStudent.prefWidthProperty().bind(borderPane.widthProperty().divide(10).multiply(4));
         vBoxStudent.prefHeightProperty().bind(borderPane.heightProperty().divide(2));
 

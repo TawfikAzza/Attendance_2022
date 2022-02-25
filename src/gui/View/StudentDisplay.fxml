@@ -44,6 +44,7 @@
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                     <children>
+                  <JFXButton buttonType="RAISED" prefHeight="60.0" prefWidth="110.0" text="My Attendance" />
                   <HBox alignment="CENTER" layoutX="162.0" layoutY="81.0" prefHeight="236.0" prefWidth="788.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <JFXButton fx:id="btnConfirmAttendance" onAction="#confirmAttendance" prefHeight="150.0" prefWidth="275.0" />

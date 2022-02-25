@@ -30,8 +30,8 @@ public class MainApp extends Application {
 
         primaryStage.setScene(scene);
 
-        primaryStage.minWidthProperty().bind(scene.heightProperty().multiply(2));
-        primaryStage.minHeightProperty().bind(scene.widthProperty().divide(2));
+        //primaryStage.minWidthProperty().bind(scene.heightProperty().multiply(2));
+        //primaryStage.minHeightProperty().bind(scene.widthProperty().divide(2));
 
         MainWindowController controller = loader.getController();
         controller.setMainApp(this);
